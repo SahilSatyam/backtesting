@@ -1,0 +1,150 @@
+2025-08-23 18:11:54,051 - utils.helpers - INFO - Logging configured with level: INFO
+2025-08-23 18:11:54,051 - __main__ - INFO - Starting Indian Stock Market Backtesting System
+2025-08-23 18:11:54,052 - __main__ - INFO - Step 1: Initializing database...
+2025-08-23 18:11:54,143 - database.operations - INFO - Database tables created successfully
+2025-08-23 18:11:54,146 - database.operations - INFO - Database indexes created successfully
+2025-08-23 18:11:54,146 - __main__ - INFO - Database initialized successfully
+2025-08-23 18:11:54,165 - __main__ - INFO - Current database status: 17 stocks, 15402 price records
+2025-08-23 18:11:54,165 - __main__ - INFO - Data already exists in database
+2025-08-23 18:11:54,166 - __main__ - INFO - Step 3: Running backtesting...
+2025-08-23 18:11:54,167 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 18:11:54,167 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 18:11:54,177 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 18:11:54,181 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 18:11:54,184 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:11:54,186 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:11:54,213 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 18:11:54,214 - __main__ - INFO - Step 4: Displaying results...
+2025-08-23 18:11:54,216 - __main__ - INFO - Step 5: Generating visualizations...
+2025-08-23 18:11:54,217 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:11:54,218 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:11:54,219 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:11:54,219 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:11:54,220 - visualization.charts - ERROR - Plotly not available for interactive plotting
+2025-08-23 18:11:54,220 - __main__ - INFO - Step 6: Saving results...
+2025-08-23 18:11:54,224 - utils.helpers - ERROR - Error saving results: keys must be str, int, float, bool or None, not date
+2025-08-23 18:11:54,224 - __main__ - INFO - Step 7: Running multiple backtests...
+2025-08-23 18:11:54,225 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 18:11:54,225 - backtesting.engine - INFO - Running backtests for 3 symbols
+2025-08-23 18:11:54,226 - backtesting.engine - INFO - Running backtest for RELIANCE (1/3)
+2025-08-23 18:11:54,226 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 18:11:54,234 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 18:11:54,238 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 18:11:54,240 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:11:54,242 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:11:54,267 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 18:11:54,268 - backtesting.engine - INFO - Running backtest for TCS (2/3)
+2025-08-23 18:11:54,268 - backtesting.engine - INFO - Starting backtest for TCS with Moving Average Crossover
+2025-08-23 18:11:54,275 - database.operations - INFO - Retrieved 493 price records for TCS
+2025-08-23 18:11:54,279 - backtesting.engine - INFO - Retrieved 493 data points for TCS
+2025-08-23 18:11:54,282 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:11:54,284 - strategies.moving_average_crossover - INFO - Generated 7 buy signals and 6 sell signals
+2025-08-23 18:11:54,308 - backtesting.engine - INFO - Backtest completed for TCS
+2025-08-23 18:11:54,308 - backtesting.engine - INFO - Running backtest for INFY (3/3)
+2025-08-23 18:11:54,309 - backtesting.engine - INFO - Starting backtest for INFY with Moving Average Crossover
+2025-08-23 18:11:54,317 - database.operations - INFO - Retrieved 493 price records for INFY
+2025-08-23 18:11:54,320 - backtesting.engine - INFO - Retrieved 493 data points for INFY
+2025-08-23 18:11:54,323 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:11:54,325 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:11:54,349 - backtesting.engine - INFO - Backtest completed for INFY
+2025-08-23 18:11:54,351 - __main__ - INFO - Backtesting system completed successfully!
+2025-08-23 18:38:48,147 - utils.helpers - INFO - Logging configured with level: INFO
+2025-08-23 18:38:48,148 - __main__ - INFO - Starting Indian Stock Market Backtesting System
+2025-08-23 18:38:48,148 - __main__ - INFO - Step 1: Initializing database...
+2025-08-23 18:38:48,241 - database.operations - INFO - Database tables created successfully
+2025-08-23 18:38:48,246 - database.operations - INFO - Database indexes created successfully
+2025-08-23 18:38:48,246 - __main__ - INFO - Database initialized successfully
+2025-08-23 18:38:48,265 - __main__ - INFO - Current database status: 17 stocks, 21507 price records
+2025-08-23 18:38:48,265 - __main__ - INFO - Data already exists in database
+2025-08-23 18:38:48,265 - __main__ - INFO - Step 3: Running backtesting...
+2025-08-23 18:38:48,267 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 18:38:48,267 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 18:38:48,280 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 18:38:48,284 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 18:38:48,290 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:38:48,292 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:38:48,325 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 18:38:48,325 - __main__ - INFO - Step 4: Displaying results...
+2025-08-23 18:38:48,328 - __main__ - INFO - Step 5: Generating visualizations...
+2025-08-23 18:38:48,329 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:38:48,330 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:38:48,330 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:38:48,331 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 18:38:48,331 - visualization.charts - ERROR - Plotly not available for interactive plotting
+2025-08-23 18:38:48,332 - __main__ - INFO - Step 6: Saving results...
+2025-08-23 18:38:48,336 - utils.helpers - ERROR - Error saving results: keys must be str, int, float, bool or None, not date
+2025-08-23 18:38:48,336 - __main__ - INFO - Step 7: Running multiple backtests...
+2025-08-23 18:38:48,337 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 18:38:48,337 - backtesting.engine - INFO - Running backtests for 3 symbols
+2025-08-23 18:38:48,338 - backtesting.engine - INFO - Running backtest for RELIANCE (1/3)
+2025-08-23 18:38:48,338 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 18:38:48,345 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 18:38:48,349 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 18:38:48,351 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:38:48,353 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:38:48,377 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 18:38:48,378 - backtesting.engine - INFO - Running backtest for TCS (2/3)
+2025-08-23 18:38:48,378 - backtesting.engine - INFO - Starting backtest for TCS with Moving Average Crossover
+2025-08-23 18:38:48,386 - database.operations - INFO - Retrieved 493 price records for TCS
+2025-08-23 18:38:48,390 - backtesting.engine - INFO - Retrieved 493 data points for TCS
+2025-08-23 18:38:48,392 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:38:48,393 - strategies.moving_average_crossover - INFO - Generated 7 buy signals and 6 sell signals
+2025-08-23 18:38:48,420 - backtesting.engine - INFO - Backtest completed for TCS
+2025-08-23 18:38:48,420 - backtesting.engine - INFO - Running backtest for INFY (3/3)
+2025-08-23 18:38:48,421 - backtesting.engine - INFO - Starting backtest for INFY with Moving Average Crossover
+2025-08-23 18:38:48,428 - database.operations - INFO - Retrieved 493 price records for INFY
+2025-08-23 18:38:48,432 - backtesting.engine - INFO - Retrieved 493 data points for INFY
+2025-08-23 18:38:48,434 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 18:38:48,436 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 18:38:48,461 - backtesting.engine - INFO - Backtest completed for INFY
+2025-08-23 18:38:48,463 - __main__ - INFO - Backtesting system completed successfully!
+2025-08-23 21:26:05,751 - utils.helpers - INFO - Logging configured with level: INFO
+2025-08-23 21:26:05,751 - __main__ - INFO - Starting Indian Stock Market Backtesting System
+2025-08-23 21:26:05,752 - __main__ - INFO - Step 1: Initializing database...
+2025-08-23 21:26:05,852 - database.operations - INFO - Database tables created successfully
+2025-08-23 21:26:05,855 - database.operations - INFO - Database indexes created successfully
+2025-08-23 21:26:05,855 - __main__ - INFO - Database initialized successfully
+2025-08-23 21:26:05,876 - __main__ - INFO - Current database status: 17 stocks, 21507 price records
+2025-08-23 21:26:05,876 - __main__ - INFO - Data already exists in database
+2025-08-23 21:26:05,876 - __main__ - INFO - Step 3: Running backtesting...
+2025-08-23 21:26:05,878 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 21:26:05,879 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 21:26:05,892 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 21:26:05,897 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 21:26:05,903 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 21:26:05,906 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 21:26:05,938 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 21:26:05,939 - __main__ - INFO - Step 4: Displaying results...
+2025-08-23 21:26:05,941 - __main__ - INFO - Step 5: Generating visualizations...
+2025-08-23 21:26:05,943 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 21:26:05,944 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 21:26:05,945 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 21:26:05,945 - visualization.charts - ERROR - Matplotlib not available for plotting
+2025-08-23 21:26:05,946 - visualization.charts - ERROR - Plotly not available for interactive plotting
+2025-08-23 21:26:05,946 - __main__ - INFO - Step 6: Saving results...
+2025-08-23 21:26:05,950 - utils.helpers - ERROR - Error saving results: keys must be str, int, float, bool or None, not date
+2025-08-23 21:26:05,951 - __main__ - INFO - Step 7: Running multiple backtests...
+2025-08-23 21:26:05,951 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 21:26:05,952 - backtesting.engine - INFO - Running backtests for 3 symbols
+2025-08-23 21:26:05,952 - backtesting.engine - INFO - Running backtest for RELIANCE (1/3)
+2025-08-23 21:26:05,952 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 21:26:05,962 - database.operations - INFO - Retrieved 493 price records for RELIANCE
+2025-08-23 21:26:05,966 - backtesting.engine - INFO - Retrieved 493 data points for RELIANCE
+2025-08-23 21:26:05,967 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 21:26:05,969 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 21:26:05,995 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 21:26:05,995 - backtesting.engine - INFO - Running backtest for TCS (2/3)
+2025-08-23 21:26:05,996 - backtesting.engine - INFO - Starting backtest for TCS with Moving Average Crossover
+2025-08-23 21:26:06,004 - database.operations - INFO - Retrieved 493 price records for TCS
+2025-08-23 21:26:06,008 - backtesting.engine - INFO - Retrieved 493 data points for TCS
+2025-08-23 21:26:06,010 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 21:26:06,012 - strategies.moving_average_crossover - INFO - Generated 7 buy signals and 6 sell signals
+2025-08-23 21:26:06,037 - backtesting.engine - INFO - Backtest completed for TCS
+2025-08-23 21:26:06,037 - backtesting.engine - INFO - Running backtest for INFY (3/3)
+2025-08-23 21:26:06,037 - backtesting.engine - INFO - Starting backtest for INFY with Moving Average Crossover
+2025-08-23 21:26:06,047 - database.operations - INFO - Retrieved 493 price records for INFY
+2025-08-23 21:26:06,051 - backtesting.engine - INFO - Retrieved 493 data points for INFY
+2025-08-23 21:26:06,053 - strategies.moving_average_crossover - INFO - Calculated indicators for 493 data points
+2025-08-23 21:26:06,056 - strategies.moving_average_crossover - INFO - Generated 6 buy signals and 5 sell signals
+2025-08-23 21:26:06,081 - backtesting.engine - INFO - Backtest completed for INFY
+2025-08-23 21:26:06,082 - __main__ - INFO - Backtesting system completed successfully!
