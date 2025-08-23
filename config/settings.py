@@ -81,11 +81,59 @@ DEFAULT_END_DATE = os.getenv('DEFAULT_END_DATE', '2023-12-31')
 DEFAULT_SHORT_WINDOW = int(os.getenv('DEFAULT_SHORT_WINDOW', 20))
 DEFAULT_LONG_WINDOW = int(os.getenv('DEFAULT_LONG_WINDOW', 50))
 
-# Default stock symbols for Indian markets
+# NIFTY 50 Stocks (as of August 2025)
 DEFAULT_STOCKS = [
-    'RELIANCE', 'TCS', 'INFY', 'HDFCBANK', 'ICICIBANK',
-    'HINDUNILVR', 'ITC', 'SBIN', 'BHARTIARTL', 'KOTAKBANK',
-    'AXISBANK', 'ASIANPAINT', 'MARUTI', 'HCLTECH', 'SUNPHARMA'
+    # Major Sectors Representation
+    'RELIANCE',    # Oil & Gas
+    'TCS',         # IT
+    'HDFCBANK',    # Banking
+    'ICICIBANK',   # Banking
+    'INFY',        # IT
+    'HINDUNILVR',  # FMCG
+    'ITC',         # FMCG
+    'SBIN',        # Banking
+    'BHARTIARTL',  # Telecom
+    'KOTAKBANK',   # Banking
+    'AXISBANK',    # Banking
+    'ASIANPAINT',  # Consumer Goods
+    'MARUTI',      # Automobile
+    'HCLTECH',     # IT
+    'SUNPHARMA',   # Pharma
+    'TITAN',       # Consumer Goods
+    'LT',          # Construction
+    'BAJFINANCE',  # Financial Services
+    'NTPC',        # Power
+    'ONGC',        # Oil & Gas
+    'NESTLEIND',   # FMCG
+    'ULTRACEMCO',  # Cement
+    'TATAMOTORS',  # Automobile
+    'BAJAJFINSV',  # Financial Services
+    'ADANIPORTS',  # Infrastructure
+    'HDFCLIFE',    # Insurance
+    'SBILIFE',     # Insurance
+    'POWERGRID',   # Power
+    'M&M',         # Automobile
+    'TATASTEEL',   # Metals
+    'GRASIM',      # Diversified
+    'DIVISLAB',    # Pharma
+    'JSWSTEEL',    # Metals
+    'TATACONSUM',  # FMCG
+    'BAJAJ-AUTO',  # Automobile
+    'HINDALCO',    # Metals
+    'CIPLA',       # Pharma
+    'UPL',         # Chemicals
+    'TECHM',       # IT
+    'HDFCAMC',     # Financial Services
+    'BRITANNIA',   # FMCG
+    'EICHERMOT',   # Automobile
+    'DRREDDY',     # Pharma
+    'SHREECEM',    # Cement
+    'COALINDIA',   # Mining
+    'INDUSINDBK',  # Banking
+    'HEROMOTOCO',  # Automobile
+    'BPCL',        # Oil & Gas
+    'ADANIENT',    # Diversified
+    'WIPRO'        # IT
 ]
 
 # Logging Configuration
