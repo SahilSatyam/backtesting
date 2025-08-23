@@ -68,43 +68,75 @@ def main():
         # Create strategy
         strategy = MovingAverageCrossover(short_window=20, long_window=50)
         
-        # Run backtest for a single stock
-        symbol = "RELIANCE"
-        print(f"\nRunning backtest for {symbol}...")
+        # Run backtest for multiple stocks
+        print(f"\nRunning backtests for {len(DEFAULT_STOCKS)} symbols...")
         
-        results = backtest_engine.run_backtest(
-            symbol=symbol,
+        all_results = backtest_engine.run_multiple_backtests(
+            symbols=DEFAULT_STOCKS,
             strategy=strategy,
-            start_date="2022-01-01",
-            end_date="2023-12-31",
-            initial_capital=100000
+            start_date=DEFAULT_START_DATE,
+            end_date=DEFAULT_END_DATE
         )
         
-        if results:
+        if all_results and all_results['individual_results']:
             # Step 5: Display results
             logger.info("Step 4: Displaying results...")
-            display_results(results)
+            display_multi_stock_results(all_results)
             
             # Step 6: Generate visualizations
             logger.info("Step 5: Generating visualizations...")
-            generate_charts(results)
+            for symbol, results in all_results['individual_results'].items():
+                if results:
+                    logger.info(f"Generating charts for {symbol}...")
+                    generate_charts(results)
             
             # Step 7: Save results
             logger.info("Step 6: Saving results...")
-            save_results(results)
+            save_results(all_results, filename="multi_stock_results.json")
             
         else:
-            logger.error("Backtest failed - no results generated")
-        
-        # Step 7: Run multiple backtests (commented out as it's not implemented yet)
-        # logger.info("Step 7: Running multiple backtests...")
-        # run_multiple_backtests()
+            logger.error("Multi-stock backtest failed - no results generated")
         
         logger.info("Backtesting system completed successfully!")
         
     except Exception as e:
         logger.error(f"Error in main execution: {e}", exc_info=True)
         print(f"An error occurred: {e}")
+
+def display_multi_stock_results(all_results: Dict[str, Any]):
+    """Display results for multiple backtests, including aggregate and individual stats."""
+    # Display aggregate results
+    aggregate = all_results.get('aggregate_results')
+    if aggregate:
+        print("\n" + "="*80)
+        print("AGGREGATE BACKTESTING RESULTS")
+        print("="*80)
+        print(f"Total Symbols: {aggregate.get('total_symbols', 0)}")
+        print(f"Total Initial Capital: {format_currency(aggregate.get('total_initial_capital', 0))}")
+        print(f"Total Final Capital: {format_currency(aggregate.get('total_final_capital', 0))}")
+        print(f"Total P&L: {format_currency(aggregate.get('total_pnl', 0))}")
+        print(f"Total Return: {aggregate.get('total_return', 0):.2%}")
+        print(f"Average Return: {aggregate.get('avg_return', 0):.2%}")
+        print(f"Average Sharpe Ratio: {aggregate.get('avg_sharpe_ratio', 0):.3f}")
+        print(f"Average Max Drawdown: {aggregate.get('avg_max_drawdown', 0):.2%}")
+        print("="*80)
+
+    # Display individual results summary
+    individual = all_results.get('individual_results')
+    if individual:
+        print("\n" + "-"*80)
+        print("INDIVIDUAL SYMBOL PERFORMANCE")
+        print("-"*80)
+        for symbol, result in individual.items():
+            if result and result.get('metrics'):
+                metrics = result['metrics']
+                pnl = result.get('final_capital', 0) - result.get('initial_capital', 0)
+                ret = metrics.get('total_return', 0)
+                sharpe = metrics.get('sharpe_ratio', 0)
+                print(f"{symbol:<15} | P&L: {format_currency(pnl):>15} | Return: {ret:>8.2%} | Sharpe: {sharpe:>6.3f}")
+            else:
+                print(f"{symbol:<15} | Backtest failed or no data")
+        print("-"*80)
 
 def display_results(results: Dict[str, Any]):
     """Display backtest results in a formatted way."""
@@ -257,46 +289,6 @@ def generate_charts(results: Dict[str, Any]):
         error_msg = f"Error generating charts: {e}"
         print(error_msg)
         logger.error(error_msg, exc_info=True)
-        test_symbols = ["RELIANCE", "TCS", "INFY"]
-        
-        print(f"\nRunning backtests for multiple symbols: {test_symbols}")
-        
-        # Run multiple backtests
-        all_results = backtest_engine.run_multiple_backtests(
-            symbols=test_symbols,
-            strategy=strategy,
-            start_date="2022-01-01",
-            end_date="2023-12-31"
-        )
-        
-        # Display aggregate results
-        aggregate = all_results['aggregate_results']
-        if aggregate:
-            print(f"\nAGGREGATE RESULTS:")
-            print("-" * 40)
-            print(f"Total Symbols: {aggregate['total_symbols']}")
-            print(f"Total Initial Capital: {format_currency(aggregate['total_initial_capital'])}")
-            print(f"Total Final Capital: {format_currency(aggregate['total_final_capital'])}")
-            print(f"Total P&L: {format_currency(aggregate['total_pnl'])}")
-            print(f"Total Return: {aggregate['total_return']:.2%}")
-            print(f"Average Return: {aggregate['avg_return']:.2%}")
-            print(f"Average Sharpe Ratio: {aggregate['avg_sharpe_ratio']:.3f}")
-            print(f"Average Max Drawdown: {aggregate['avg_max_drawdown']:.2%}")
-        
-        # Display individual results
-        individual = all_results['individual_results']
-        print(f"\nINDIVIDUAL RESULTS:")
-        print("-" * 40)
-        for symbol, result in individual.items():
-            if result:
-                total_return = result['metrics'].get('total_return', 0)
-                sharpe = result['metrics'].get('sharpe_ratio', 0)
-                print(f"{symbol}: Return={total_return:.2%}, Sharpe={sharpe:.3f}")
-            else:
-                print(f"{symbol}: Failed")
-        
-    except Exception as e:
-        logger.error(f"Error running multiple backtests: {e}")
 
 def demo_mode():
     """Run a quick demo of the system."""

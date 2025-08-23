@@ -70,9 +70,14 @@ def save_results(results: Dict[str, Any], filename: str = None):
             return json_serial(obj.__dict__)
         return str(obj)  # fallback to string representation
 
+    results_dir = 'results'
     if filename is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"results/backtest_results_{timestamp}.json"
+        filename = f"backtest_results_{timestamp}.json"
+    
+    # Ensure the filename is within the results directory
+    if not filename.startswith(results_dir + os.sep):
+        filename = os.path.join(results_dir, filename)
     
     # Create results directory if it doesn't exist
     os.makedirs(os.path.dirname(filename), exist_ok=True)
