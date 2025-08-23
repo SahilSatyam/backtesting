@@ -52,6 +52,24 @@ def save_results(results: Dict[str, Any], filename: str = None):
         results: Dictionary with backtest results
         filename: Output filename (optional)
     """
+    def json_serial(obj):
+        """JSON serializer for objects not serializable by default json code"""
+        if isinstance(obj, (datetime, date)):
+            return obj.isoformat()
+        elif hasattr(obj, 'to_dict'):
+            return obj.to_dict()
+        elif isinstance(obj, (pd.DataFrame, pd.Series)):
+            return obj.to_dict()
+        elif isinstance(obj, dict):
+            # Convert all keys to strings and recursively process values
+            return {str(k) if not isinstance(k, (str, int, float, bool)) and k is not None else k: json_serial(v) 
+                   for k, v in obj.items()}
+        elif isinstance(obj, (list, tuple, set)):
+            return [json_serial(item) for item in obj]
+        elif hasattr(obj, '__dict__'):
+            return json_serial(obj.__dict__)
+        return str(obj)  # fallback to string representation
+
     if filename is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"results/backtest_results_{timestamp}.json"
@@ -59,24 +77,15 @@ def save_results(results: Dict[str, Any], filename: str = None):
     # Create results directory if it doesn't exist
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     
-    # Convert non-serializable objects
-    serializable_results = {}
-    for key, value in results.items():
-        if key in ['equity_curve', 'data', 'signals', 'trades']:
-            # Convert DataFrames to dictionaries
-            if isinstance(value, pd.DataFrame) or isinstance(value, pd.Series):
-                serializable_results[key] = value.to_dict()
-            else:
-                serializable_results[key] = value
-        elif isinstance(value, (datetime, date)):
-            serializable_results[key] = value.isoformat()
-        else:
-            serializable_results[key] = value
-    
     try:
-        with open(filename, 'w') as f:
-            json.dump(serializable_results, f, indent=2, default=str)
-        logger.info(f"Results saved to {filename}")
+        # Convert all data to serializable format
+        serializable_results = json_serial(results)
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(serializable_results, f, indent=2, ensure_ascii=False)
+            
+        logger.info(f"Results saved to {os.path.abspath(filename)}")
+        return True
     except Exception as e:
         logger.error(f"Error saving results: {e}")
 

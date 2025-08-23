@@ -96,15 +96,15 @@ def main():
         else:
             logger.error("Backtest failed - no results generated")
         
-        # Step 8: Run multiple backtests
-        logger.info("Step 7: Running multiple backtests...")
-        run_multiple_backtests()
+        # Step 7: Run multiple backtests (commented out as it's not implemented yet)
+        # logger.info("Step 7: Running multiple backtests...")
+        # run_multiple_backtests()
         
         logger.info("Backtesting system completed successfully!")
         
     except Exception as e:
-        logger.error(f"Error in main execution: {e}")
-        raise
+        logger.error(f"Error in main execution: {e}", exc_info=True)
+        print(f"An error occurred: {e}")
 
 def display_results(results: Dict[str, Any]):
     """Display backtest results in a formatted way."""
@@ -156,71 +156,107 @@ def display_results(results: Dict[str, Any]):
 
 def generate_charts(results: Dict[str, Any]):
     """Generate and save charts for the backtest results."""
+    # Initialize logger
+    logger = logging.getLogger(__name__)
+    
     try:
-        # Create charts directory
-        os.makedirs('charts', exist_ok=True)
+        # Create charts directory with error handling
+        charts_dir = 'charts'
+        try:
+            os.makedirs(charts_dir, exist_ok=True)
+            if not os.path.isdir(charts_dir):
+                raise NotADirectoryError(f"Failed to create directory: {os.path.abspath(charts_dir)}")
+            logger.info(f"Using charts directory: {os.path.abspath(charts_dir)}")
+        except Exception as e:
+            logger.error(f"Error creating charts directory: {e}")
+            print(f"Error: Could not create charts directory. Please check permissions or create it manually: {os.path.abspath(charts_dir)}")
+            return
         
         # Generate equity curve chart
         print("Generating equity curve chart...")
-        plot_equity_curve(
-            results['equity_curve'],
-            title=f"Equity Curve - {results['symbol']}",
-            save_path=f"charts/equity_curve_{results['symbol']}.png",
-            show=False
-        )
+        try:
+            save_path = os.path.join(charts_dir, f"equity_curve_{results['symbol']}.png")
+            plot_equity_curve(
+                results['equity_curve'],
+                title=f"Equity Curve - {results['symbol']}",
+                save_path=save_path,
+                show=False
+            )
+            logger.info(f"Saved equity curve to: {os.path.abspath(save_path)}")
+        except Exception as e:
+            logger.error(f"Error generating equity curve: {e}")
+            print(f"Warning: Could not generate equity curve: {e}")
         
         # Generate drawdown chart
         if 'drawdown_series' in results['metrics']:
             print("Generating drawdown chart...")
-            plot_drawdown(
-                results['metrics']['drawdown_series'],
-                title=f"Drawdown Analysis - {results['symbol']}",
-                save_path=f"charts/drawdown_{results['symbol']}.png",
-                show=False
-            )
+            try:
+                save_path = os.path.join(charts_dir, f"drawdown_{results['symbol']}.png")
+                plot_drawdown(
+                    results['metrics']['drawdown_series'],
+                    title=f"Drawdown Analysis - {results['symbol']}",
+                    save_path=save_path,
+                    show=False
+                )
+                logger.info(f"Saved drawdown chart to: {os.path.abspath(save_path)}")
+            except Exception as e:
+                logger.error(f"Error generating drawdown chart: {e}")
+                print(f"Warning: Could not generate drawdown chart: {e}")
         
         # Generate trades chart
         if not results['trades'].empty:
             print("Generating trades chart...")
-            plot_trades(
-                results['data'],
-                results['trades'],
-                title=f"Trades Analysis - {results['symbol']}",
-                save_path=f"charts/trades_{results['symbol']}.png",
-                show=False
-            )
+            try:
+                save_path = os.path.join(charts_dir, f"trades_{results['symbol']}.png")
+                plot_trades(
+                    results['data'],
+                    results['trades'],
+                    title=f"Trades Analysis - {results['symbol']}",
+                    save_path=save_path,
+                    show=False
+                )
+                logger.info(f"Saved trades chart to: {os.path.abspath(save_path)}")
+            except Exception as e:
+                logger.error(f"Error generating trades chart: {e}")
+                print(f"Warning: Could not generate trades chart: {e}")
         
         # Generate strategy signals chart
         print("Generating strategy signals chart...")
-        plot_strategy_signals(
-            results['data'],
-            results['signals'],
-            strategy_name=f"{results['strategy']} - {results['symbol']}",
-            save_path=f"charts/signals_{results['symbol']}.png",
-            show=False
-        )
+        try:
+            save_path = os.path.join(charts_dir, f"signals_{results['symbol']}.png")
+            plot_strategy_signals(
+                results['data'],
+                results['signals'],
+                strategy_name=f"{results['strategy']} - {results['symbol']}",
+                save_path=save_path,
+                show=False
+            )
+            logger.info(f"Saved signals chart to: {os.path.abspath(save_path)}")
+        except Exception as e:
+            logger.error(f"Error generating signals chart: {e}")
+            print(f"Warning: Could not generate signals chart: {e}")
         
         # Create interactive chart
         print("Generating interactive chart...")
-        fig = create_interactive_chart(
-            results,
-            title=f"Interactive Backtest Results - {results['symbol']}"
-        )
-        if fig:
-            fig.write_html(f"charts/interactive_{results['symbol']}.html")
+        try:
+            save_path = os.path.join(charts_dir, f"interactive_{results['symbol']}.html")
+            fig = create_interactive_chart(
+                results,
+                title=f"Interactive Backtest Results - {results['symbol']}"
+            )
+            if fig:
+                fig.write_html(save_path)
+                logger.info(f"Saved interactive chart to: {os.path.abspath(save_path)}")
+        except Exception as e:
+            logger.error(f"Error generating interactive chart: {e}")
+            print(f"Warning: Could not generate interactive chart: {e}")
         
-        print("All charts generated successfully!")
+        print("All charts generation completed! Check the logs for any warnings.")
         
     except Exception as e:
-        logger.error(f"Error generating charts: {e}")
-
-def run_multiple_backtests():
-    """Run backtests for multiple symbols."""
-    try:
-        # Create strategy
-        strategy = MovingAverageCrossover(short_window=20, long_window=50)
-        
-        # Symbols to test
+        error_msg = f"Error generating charts: {e}"
+        print(error_msg)
+        logger.error(error_msg, exc_info=True)
         test_symbols = ["RELIANCE", "TCS", "INFY"]
         
         print(f"\nRunning backtests for multiple symbols: {test_symbols}")

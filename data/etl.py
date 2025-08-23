@@ -5,8 +5,7 @@ import logging
 import pandas as pd
 from datetime import datetime, date, timedelta
 from typing import List, Dict, Any, Optional
-from data.fetcher import data_fetcher
-from data.alternative_fetcher import alternative_data_fetcher
+from data import get_fetcher
 from database.operations import (
     get_or_create_stock, insert_daily_prices, get_price_dataframe,
     get_stock_count, get_price_count, get_last_price_date
@@ -19,27 +18,17 @@ class ETLPipeline:
     """ETL pipeline for stock data processing."""
     
     def __init__(self):
-        self.fetcher = data_fetcher
+        self.fetcher = get_fetcher()
     
     def extract_stock_data(self, symbol: str, start_date: date, end_date: date) -> Optional[pd.DataFrame]:
         """Extract stock data from external sources."""
         logger.info(f"Extracting data for {symbol} from {start_date} to {end_date}")
         
-        # Try main fetcher first
+        # Fetch data using the unified fetcher
         data = self.fetcher.fetch_stock_data(symbol, start_date, end_date)
         
         if data is None or data.empty:
-            logger.warning(f"Main fetcher failed for {symbol}, trying alternative fetcher...")
-            # Try alternative fetcher
-            data = alternative_data_fetcher.fetch_stock_data(symbol, start_date, end_date)
-        
-        if data is None or data.empty:
-            logger.error(f"No data extracted for {symbol} from any source")
-            return None
-        
-        # Validate data quality
-        if not self.fetcher.validate_data(data):
-            logger.error(f"Data validation failed for {symbol}")
+            logger.error(f"No data extracted for {symbol}")
             return None
         
         logger.info(f"Successfully extracted {len(data)} records for {symbol}")
@@ -176,33 +165,66 @@ class ETLPipeline:
             logger.error(f"ETL processing failed for {symbol}: {e}")
             return False
     
+    def _process_single_stock_wrapper(self, args):
+        """Wrapper function to unpack arguments for process_single_stock."""
+        symbol, start_date, end_date, incremental = args
+        return symbol, self.process_single_stock(symbol, start_date, end_date, incremental)
+    
     def process_multiple_stocks(self, symbols: List[str], start_date: date = None, end_date: date = None, 
-                              incremental: bool = True) -> Dict[str, bool]:
+                              incremental: bool = True, max_workers: int = 5) -> Dict[str, bool]:
         """
-        Process multiple stocks through the ETL pipeline.
+        Process multiple stocks through the ETL pipeline in parallel.
         
         Args:
             symbols: List of stock symbols
             start_date: Start date for data fetching (if None, will use incremental logic)
             end_date: End date for data fetching (if None, will use today's date)
             incremental: Whether to use incremental fetching (only fetch new data)
+            max_workers: Maximum number of worker processes to use (default: 5)
         """
-        logger.info(f"Processing ETL for {len(symbols)} stocks (incremental: {incremental})")
+        import concurrent.futures
+        import time
+        from tqdm import tqdm
         
+        logger.info(f"Processing ETL for {len(symbols)} stocks in parallel with {max_workers} workers (incremental: {incremental})")
+        
+        # Prepare arguments for each stock
+        args = [(symbol, start_date, end_date, incremental) for symbol in symbols]
         results = {}
         
-        for symbol in symbols:
-            logger.info(f"Processing {symbol} ({symbols.index(symbol) + 1}/{len(symbols)})")
+        # Use ThreadPoolExecutor for I/O bound tasks
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Submit all tasks
+            future_to_symbol = {
+                executor.submit(self._process_single_stock_wrapper, arg): arg[0] 
+                for arg in args
+            }
             
-            success = self.process_single_stock(symbol, start_date, end_date, incremental)
-            results[symbol] = success
+            # Process completed tasks as they complete
+            completed = 0
+            total = len(symbols)
             
-            # Add delay between stocks to avoid rate limiting
-            import time
-            time.sleep(2)
+            # Use tqdm for progress bar
+            with tqdm(total=total, desc="Processing stocks", unit="stock") as pbar:
+                for future in concurrent.futures.as_completed(future_to_symbol):
+                    symbol = future_to_symbol[future]
+                    try:
+                        symbol, success = future.result()
+                        results[symbol] = success
+                        pbar.update(1)
+                        completed += 1
+                        
+                        # Add a small delay to be nice to the API
+                        time.sleep(0.5)
+                        
+                    except Exception as e:
+                        logger.error(f"Error processing {symbol}: {e}")
+                        results[symbol] = False
+                        pbar.update(1)
+                        completed += 1
         
         # Summary
-        successful = sum(results.values())
+        successful = sum(1 for v in results.values() if v)
         failed = len(results) - successful
         
         logger.info(f"ETL Summary: {successful} successful, {failed} failed")

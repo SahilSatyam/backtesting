@@ -1,51 +1,55 @@
 # Indian Stock Market Backtesting System
 
-A comprehensive Python-based backtesting system for Indian stock markets that fetches data from NSE/BSE, stores it in PostgreSQL, and implements moving average crossover strategies.
+A high-performance Python-based backtesting system for Indian stock markets that fetches data from NSE/BSE, stores it in PostgreSQL, and implements moving average crossover strategies with parallel processing capabilities.
 
-## Features
+## ✨ Features
 
-- **Data Fetching**: Fetches daily OHLCV data from NSE/BSE using NSEpy and Yahoo Finance APIs
-- **Database Management**: PostgreSQL database with proper schema and indexing
-- **ETL Pipeline**: Automated data extraction, transformation, and loading
+- **Parallel Data Processing**: Multi-threaded ETL pipeline for faster data processing
+- **Unified Data Fetcher**: Single interface for multiple data sources (NSE, BSE, Yahoo Finance)
+- **Smart Symbol Resolution**: Automatic handling of different symbol formats (e.g., RELIANCE, RELIANCE.NS)
+- **Incremental Updates**: Efficient updates with only new data being fetched
+- **Robust Error Handling**: Comprehensive logging and error recovery mechanisms
+- **Database Management**: PostgreSQL database with optimized schema and indexing
 - **Backtesting Engine**: Moving Average Crossover strategy implementation
 - **Performance Metrics**: Returns, drawdown, Sharpe ratio, and win rate calculations
-- **Visualization**: Interactive charts using Plotly and Matplotlib
+- **Interactive Visualization**: Interactive charts using Plotly and Matplotlib
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
 backtesting/
-├── config/
+├── config/                  # Configuration settings
 │   ├── __init__.py
-│   ├── database.py
-│   └── settings.py
-├── database/
+│   ├── database.py         # Database configuration
+│   └── settings.py         # Application settings
+├── database/               # Database models and operations
 │   ├── __init__.py
-│   ├── models.py
-│   ├── connection.py
-│   └── operations.py
-├── data/
+│   ├── models.py          # SQLAlchemy models
+│   ├── connection.py      # Database connection handling
+│   └── operations.py      # CRUD operations
+├── data/                  # Data handling
 │   ├── __init__.py
-│   ├── fetcher.py
-│   └── etl.py
-├── strategies/
+│   ├── unified_fetcher.py # Unified data fetcher
+│   ├── etl.py            # Parallel ETL pipeline
+│   └── etl_manager.py     # ETL management and scheduling
+├── strategies/            # Trading strategies
 │   ├── __init__.py
-│   ├── base_strategy.py
-│   └── moving_average_crossover.py
-├── backtesting/
+│   ├── base_strategy.py   # Abstract base class
+│   └── moving_average_crossover.py  # MA Crossover impl.
+├── backtesting/           # Backtesting engine
 │   ├── __init__.py
-│   ├── engine.py
-│   └── metrics.py
-├── visualization/
+│   ├── engine.py         # Core backtesting logic
+│   └── metrics.py        # Performance metrics
+├── visualization/         # Data visualization
 │   ├── __init__.py
-│   └── charts.py
-├── utils/
+│   └── charts.py         # Chart generation
+├── utils/                 # Utility functions
 │   ├── __init__.py
-│   └── helpers.py
-├── requirements.txt
-├── .env.example
-├── main.py
-└── README.md
+│   └── helpers.py        # Helper functions
+├── requirements.txt       # Python dependencies
+├── .env.example          # Environment template
+├── main.py              # Main application entry
+└── README.md            # This file
 ```
 
 ## Setup Instructions
@@ -145,13 +149,7 @@ This will guide you through creating the `.env` file with database credentials, 
 python test_database_fix.py
 ```
 
-#### **Step 3: Test Data Fetchers**
-```bash
-# Verify data fetching mechanisms work
-python test_fixes.py
-```
-
-#### **Step 4: Run ETL Pipeline (Fetch Real Data)**
+#### **Step 3: Run ETL Pipeline (Fetch Real Data)**
 
 **Option A: Incremental Update (Recommended for daily use)**
 ```bash
@@ -183,7 +181,7 @@ python etl_manager.py status
 python etl_manager.py stats
 ```
 
-#### **Step 5: Verify Data in Database**
+#### **Step 4: Verify Data in Database**
 ```bash
 # Check that data was loaded correctly
 python -c "
@@ -194,7 +192,7 @@ print(f'Price records for RELIANCE: {get_price_count(\"RELIANCE\")}')
 "
 ```
 
-#### **Step 6: Run Backtesting with Real Data**
+#### **Step 5: Run Backtesting with Real Data**
 ```bash
 # Option A: Run backtest for a single symbol
 python -c "
@@ -220,13 +218,13 @@ else:
 "
 ```
 
-#### **Step 7: Run Full System (Recommended)**
+#### **Step 6: Run Full System (Recommended)**
 ```bash
 # Run the complete workflow with real data
 python main.py
 ```
 
-#### **Step 8: View Results and Visualizations**
+#### **Step 7: View Results and Visualizations**
 ```bash
 # List generated files
 ls -la charts/
@@ -691,3 +689,146 @@ If you continue to have issues:
 ## Disclaimer
 
 This software is for educational and research purposes only. Past performance does not guarantee future results. Always do your own research before making investment decisions.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- PostgreSQL 13+
+- pip (Python package manager)
+- Virtual environment (recommended)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd backtesting
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+   
+   # Linux/MacOS
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Set up your environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your database credentials
+   ```
+
+5. Initialize the database:
+   ```bash
+   python setup_database.py
+   ```
+
+## 📈 Performance Optimization
+
+The system includes several performance optimizations:
+
+1. **Parallel Processing**: The ETL pipeline processes multiple stocks concurrently
+2. **Incremental Updates**: Only fetches new data since the last update
+3. **Database Indexing**: Optimized indexes for fast queries
+4. **Connection Pooling**: Efficient database connection management
+5. **Bulk Operations**: Uses batch inserts for better performance
+
+### Tuning Parallel Processing
+
+You can adjust the number of worker threads based on your system:
+
+```python
+# In your code
+from data.etl import etl_pipeline
+
+# Process with custom number of workers
+results = etl_pipeline.process_multiple_stocks(
+    symbols=["RELIANCE", "TCS", "INFY"],
+    max_workers=10  # Adjust based on your system
+)
+```
+
+## 📊 Monitoring and Logging
+
+The system includes comprehensive logging:
+
+- Logs are stored in `logs/backtesting.log`
+- Log levels can be configured in `config/settings.py`
+- Progress bars show ETL and backtesting progress
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🛠 Usage
+
+### 1. ETL Management
+
+#### Run Incremental Update (Recommended for daily use)
+```bash
+# Update all stocks with new data
+python etl_manager.py update
+
+# Update specific stocks
+python etl_manager.py update --symbols RELIANCE TCS INFY
+
+# Run with more workers (default: 5)
+python etl_manager.py update --max-workers 10
+```
+
+#### Check ETL Status
+```bash
+# Show status of all stocks
+python etl_manager.py status
+
+# Show detailed statistics
+python etl_manager.py stats
+```
+
+### 2. Run Backtesting
+
+#### Run with Default Settings
+```bash
+python main.py
+```
+
+#### Custom Backtest
+```python
+from backtesting.engine import BacktestEngine
+from strategies.moving_average_crossover import MovingAverageCrossover
+
+# Initialize backtesting engine
+engine = BacktestEngine()
+
+# Run backtest for a single symbol
+results = engine.run_backtest(
+    symbol="RELIANCE",
+    strategy=MovingAverageCrossover(short_window=10, long_window=50),
+    start_date='2023-01-01',
+    end_date='2023-12-31',
+    initial_capital=100000
+)
+
+print(f"Total Return: {results['total_return']:.2f}%")
+print(f"Sharpe Ratio: {results['sharpe_ratio']:.2f}")
