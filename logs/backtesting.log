@@ -2353,3 +2353,919 @@
 2025-08-23 22:46:47,856 - __main__ - INFO - Step 6: Saving results...
 2025-08-23 22:46:48,104 - utils.helpers - ERROR - Error saving results: keys must be str, int, float, bool or None, not date
 2025-08-23 22:46:48,104 - __main__ - INFO - Backtesting system completed successfully!
+2025-08-23 22:57:08,000 - utils.helpers - INFO - Logging configured with level: INFO
+2025-08-23 22:57:08,000 - __main__ - INFO - Starting Indian Stock Market Backtesting System
+2025-08-23 22:57:08,001 - __main__ - INFO - Step 1: Initializing database...
+2025-08-23 22:57:08,125 - database.operations - INFO - Database tables created successfully
+2025-08-23 22:57:08,132 - database.operations - INFO - Database indexes created successfully
+2025-08-23 22:57:08,132 - __main__ - INFO - Database initialized successfully
+2025-08-23 22:57:08,173 - __main__ - INFO - Current database status: 52 stocks, 70472 price records
+2025-08-23 22:57:08,173 - __main__ - INFO - Data already exists in database
+2025-08-23 22:57:08,173 - __main__ - INFO - Step 3: Running backtesting...
+2025-08-23 22:57:08,178 - strategies.moving_average_crossover - INFO - Initialized Moving Average Crossover with parameters: {'short_window': 20, 'long_window': 50}
+2025-08-23 22:57:08,178 - backtesting.engine - INFO - Running backtests for 50 symbols
+2025-08-23 22:57:08,178 - backtesting.engine - INFO - Running backtest for RELIANCE (1/50)
+2025-08-23 22:57:08,178 - backtesting.engine - INFO - Starting backtest for RELIANCE with Moving Average Crossover
+2025-08-23 22:57:08,202 - database.operations - INFO - Retrieved 992 price records for RELIANCE
+2025-08-23 22:57:08,218 - backtesting.engine - INFO - Retrieved 992 data points for RELIANCE
+2025-08-23 22:57:08,224 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,227 - strategies.moving_average_crossover - INFO - Generated 14 buy signals and 13 sell signals
+2025-08-23 22:57:08,282 - backtesting.engine - INFO - Backtest completed for RELIANCE
+2025-08-23 22:57:08,282 - backtesting.engine - INFO - Running backtest for TCS (2/50)
+2025-08-23 22:57:08,282 - backtesting.engine - INFO - Starting backtest for TCS with Moving Average Crossover
+2025-08-23 22:57:08,296 - database.operations - INFO - Retrieved 992 price records for TCS
+2025-08-23 22:57:08,302 - backtesting.engine - INFO - Retrieved 992 data points for TCS
+2025-08-23 22:57:08,304 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,306 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:08,355 - backtesting.engine - INFO - Backtest completed for TCS
+2025-08-23 22:57:08,355 - backtesting.engine - INFO - Running backtest for HDFCBANK (3/50)
+2025-08-23 22:57:08,355 - backtesting.engine - INFO - Starting backtest for HDFCBANK with Moving Average Crossover
+2025-08-23 22:57:08,373 - database.operations - INFO - Retrieved 992 price records for HDFCBANK
+2025-08-23 22:57:08,380 - backtesting.engine - INFO - Retrieved 992 data points for HDFCBANK
+2025-08-23 22:57:08,383 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,385 - strategies.moving_average_crossover - INFO - Generated 16 buy signals and 15 sell signals
+2025-08-23 22:57:08,440 - backtesting.engine - INFO - Backtest completed for HDFCBANK
+2025-08-23 22:57:08,440 - backtesting.engine - INFO - Running backtest for ICICIBANK (4/50)
+2025-08-23 22:57:08,440 - backtesting.engine - INFO - Starting backtest for ICICIBANK with Moving Average Crossover
+2025-08-23 22:57:08,456 - database.operations - INFO - Retrieved 992 price records for ICICIBANK
+2025-08-23 22:57:08,464 - backtesting.engine - INFO - Retrieved 992 data points for ICICIBANK
+2025-08-23 22:57:08,468 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,488 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:08,586 - backtesting.engine - INFO - Backtest completed for ICICIBANK
+2025-08-23 22:57:08,586 - backtesting.engine - INFO - Running backtest for INFY (5/50)
+2025-08-23 22:57:08,586 - backtesting.engine - INFO - Starting backtest for INFY with Moving Average Crossover
+2025-08-23 22:57:08,662 - database.operations - INFO - Retrieved 992 price records for INFY
+2025-08-23 22:57:08,669 - backtesting.engine - INFO - Retrieved 992 data points for INFY
+2025-08-23 22:57:08,674 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,676 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:08,728 - backtesting.engine - INFO - Backtest completed for INFY
+2025-08-23 22:57:08,729 - backtesting.engine - INFO - Running backtest for HINDUNILVR (6/50)
+2025-08-23 22:57:08,729 - backtesting.engine - INFO - Starting backtest for HINDUNILVR with Moving Average Crossover
+2025-08-23 22:57:08,744 - database.operations - INFO - Retrieved 992 price records for HINDUNILVR
+2025-08-23 22:57:08,751 - backtesting.engine - INFO - Retrieved 992 data points for HINDUNILVR
+2025-08-23 22:57:08,753 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,755 - strategies.moving_average_crossover - INFO - Generated 15 buy signals and 14 sell signals
+2025-08-23 22:57:08,805 - backtesting.engine - INFO - Backtest completed for HINDUNILVR
+2025-08-23 22:57:08,806 - backtesting.engine - INFO - Running backtest for ITC (7/50)
+2025-08-23 22:57:08,806 - backtesting.engine - INFO - Starting backtest for ITC with Moving Average Crossover
+2025-08-23 22:57:08,823 - database.operations - INFO - Retrieved 992 price records for ITC
+2025-08-23 22:57:08,831 - backtesting.engine - INFO - Retrieved 992 data points for ITC
+2025-08-23 22:57:08,833 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,835 - strategies.moving_average_crossover - INFO - Generated 8 buy signals and 7 sell signals
+2025-08-23 22:57:08,892 - backtesting.engine - INFO - Backtest completed for ITC
+2025-08-23 22:57:08,892 - backtesting.engine - INFO - Running backtest for SBIN (8/50)
+2025-08-23 22:57:08,892 - backtesting.engine - INFO - Starting backtest for SBIN with Moving Average Crossover
+2025-08-23 22:57:08,911 - database.operations - INFO - Retrieved 992 price records for SBIN
+2025-08-23 22:57:08,917 - backtesting.engine - INFO - Retrieved 992 data points for SBIN
+2025-08-23 22:57:08,919 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:08,921 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:08,974 - backtesting.engine - INFO - Backtest completed for SBIN
+2025-08-23 22:57:08,975 - backtesting.engine - INFO - Running backtest for BHARTIARTL (9/50)
+2025-08-23 22:57:08,975 - backtesting.engine - INFO - Starting backtest for BHARTIARTL with Moving Average Crossover
+2025-08-23 22:57:08,993 - database.operations - INFO - Retrieved 992 price records for BHARTIARTL
+2025-08-23 22:57:09,002 - backtesting.engine - INFO - Retrieved 992 data points for BHARTIARTL
+2025-08-23 22:57:09,004 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,007 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:09,053 - backtesting.engine - INFO - Backtest completed for BHARTIARTL
+2025-08-23 22:57:09,053 - backtesting.engine - INFO - Running backtest for KOTAKBANK (10/50)
+2025-08-23 22:57:09,053 - backtesting.engine - INFO - Starting backtest for KOTAKBANK with Moving Average Crossover
+2025-08-23 22:57:09,076 - database.operations - INFO - Retrieved 992 price records for KOTAKBANK
+2025-08-23 22:57:09,082 - backtesting.engine - INFO - Retrieved 992 data points for KOTAKBANK
+2025-08-23 22:57:09,084 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,085 - strategies.moving_average_crossover - INFO - Generated 13 buy signals and 12 sell signals
+2025-08-23 22:57:09,141 - backtesting.engine - INFO - Backtest completed for KOTAKBANK
+2025-08-23 22:57:09,141 - backtesting.engine - INFO - Running backtest for AXISBANK (11/50)
+2025-08-23 22:57:09,141 - backtesting.engine - INFO - Starting backtest for AXISBANK with Moving Average Crossover
+2025-08-23 22:57:09,158 - database.operations - INFO - Retrieved 992 price records for AXISBANK
+2025-08-23 22:57:09,169 - backtesting.engine - INFO - Retrieved 992 data points for AXISBANK
+2025-08-23 22:57:09,172 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,176 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:09,238 - backtesting.engine - INFO - Backtest completed for AXISBANK
+2025-08-23 22:57:09,238 - backtesting.engine - INFO - Running backtest for ASIANPAINT (12/50)
+2025-08-23 22:57:09,238 - backtesting.engine - INFO - Starting backtest for ASIANPAINT with Moving Average Crossover
+2025-08-23 22:57:09,257 - database.operations - INFO - Retrieved 992 price records for ASIANPAINT
+2025-08-23 22:57:09,264 - backtesting.engine - INFO - Retrieved 992 data points for ASIANPAINT
+2025-08-23 22:57:09,266 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,268 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:09,325 - backtesting.engine - INFO - Backtest completed for ASIANPAINT
+2025-08-23 22:57:09,325 - backtesting.engine - INFO - Running backtest for MARUTI (13/50)
+2025-08-23 22:57:09,325 - backtesting.engine - INFO - Starting backtest for MARUTI with Moving Average Crossover
+2025-08-23 22:57:09,341 - database.operations - INFO - Retrieved 992 price records for MARUTI
+2025-08-23 22:57:09,348 - backtesting.engine - INFO - Retrieved 992 data points for MARUTI
+2025-08-23 22:57:09,350 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,352 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 12 sell signals
+2025-08-23 22:57:09,399 - backtesting.engine - INFO - Backtest completed for MARUTI
+2025-08-23 22:57:09,399 - backtesting.engine - INFO - Running backtest for HCLTECH (14/50)
+2025-08-23 22:57:09,399 - backtesting.engine - INFO - Starting backtest for HCLTECH with Moving Average Crossover
+2025-08-23 22:57:09,415 - database.operations - INFO - Retrieved 992 price records for HCLTECH
+2025-08-23 22:57:09,421 - backtesting.engine - INFO - Retrieved 992 data points for HCLTECH
+2025-08-23 22:57:09,424 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,427 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:09,472 - backtesting.engine - INFO - Backtest completed for HCLTECH
+2025-08-23 22:57:09,472 - backtesting.engine - INFO - Running backtest for SUNPHARMA (15/50)
+2025-08-23 22:57:09,472 - backtesting.engine - INFO - Starting backtest for SUNPHARMA with Moving Average Crossover
+2025-08-23 22:57:09,487 - database.operations - INFO - Retrieved 992 price records for SUNPHARMA
+2025-08-23 22:57:09,497 - backtesting.engine - INFO - Retrieved 992 data points for SUNPHARMA
+2025-08-23 22:57:09,499 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,502 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:09,560 - backtesting.engine - INFO - Backtest completed for SUNPHARMA
+2025-08-23 22:57:09,561 - backtesting.engine - INFO - Running backtest for TITAN (16/50)
+2025-08-23 22:57:09,561 - backtesting.engine - INFO - Starting backtest for TITAN with Moving Average Crossover
+2025-08-23 22:57:09,577 - database.operations - INFO - Retrieved 992 price records for TITAN
+2025-08-23 22:57:09,584 - backtesting.engine - INFO - Retrieved 992 data points for TITAN
+2025-08-23 22:57:09,586 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,588 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:09,635 - backtesting.engine - INFO - Backtest completed for TITAN
+2025-08-23 22:57:09,635 - backtesting.engine - INFO - Running backtest for LT (17/50)
+2025-08-23 22:57:09,636 - backtesting.engine - INFO - Starting backtest for LT with Moving Average Crossover
+2025-08-23 22:57:09,652 - database.operations - INFO - Retrieved 992 price records for LT
+2025-08-23 22:57:09,659 - backtesting.engine - INFO - Retrieved 992 data points for LT
+2025-08-23 22:57:09,661 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,663 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:09,708 - backtesting.engine - INFO - Backtest completed for LT
+2025-08-23 22:57:09,709 - backtesting.engine - INFO - Running backtest for BAJFINANCE (18/50)
+2025-08-23 22:57:09,709 - backtesting.engine - INFO - Starting backtest for BAJFINANCE with Moving Average Crossover
+2025-08-23 22:57:09,723 - database.operations - INFO - Retrieved 992 price records for BAJFINANCE
+2025-08-23 22:57:09,732 - backtesting.engine - INFO - Retrieved 992 data points for BAJFINANCE
+2025-08-23 22:57:09,734 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,736 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 11 sell signals
+2025-08-23 22:57:09,782 - backtesting.engine - INFO - Backtest completed for BAJFINANCE
+2025-08-23 22:57:09,782 - backtesting.engine - INFO - Running backtest for NTPC (19/50)
+2025-08-23 22:57:09,782 - backtesting.engine - INFO - Starting backtest for NTPC with Moving Average Crossover
+2025-08-23 22:57:09,799 - database.operations - INFO - Retrieved 992 price records for NTPC
+2025-08-23 22:57:09,805 - backtesting.engine - INFO - Retrieved 992 data points for NTPC
+2025-08-23 22:57:09,808 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,810 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:09,854 - backtesting.engine - INFO - Backtest completed for NTPC
+2025-08-23 22:57:09,854 - backtesting.engine - INFO - Running backtest for ONGC (20/50)
+2025-08-23 22:57:09,854 - backtesting.engine - INFO - Starting backtest for ONGC with Moving Average Crossover
+2025-08-23 22:57:09,868 - database.operations - INFO - Retrieved 992 price records for ONGC
+2025-08-23 22:57:09,875 - backtesting.engine - INFO - Retrieved 992 data points for ONGC
+2025-08-23 22:57:09,877 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,880 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:09,926 - backtesting.engine - INFO - Backtest completed for ONGC
+2025-08-23 22:57:09,927 - backtesting.engine - INFO - Running backtest for NESTLEIND (21/50)
+2025-08-23 22:57:09,927 - backtesting.engine - INFO - Starting backtest for NESTLEIND with Moving Average Crossover
+2025-08-23 22:57:09,941 - database.operations - INFO - Retrieved 992 price records for NESTLEIND
+2025-08-23 22:57:09,948 - backtesting.engine - INFO - Retrieved 992 data points for NESTLEIND
+2025-08-23 22:57:09,950 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:09,952 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:09,999 - backtesting.engine - INFO - Backtest completed for NESTLEIND
+2025-08-23 22:57:09,999 - backtesting.engine - INFO - Running backtest for ULTRACEMCO (22/50)
+2025-08-23 22:57:09,999 - backtesting.engine - INFO - Starting backtest for ULTRACEMCO with Moving Average Crossover
+2025-08-23 22:57:10,014 - database.operations - INFO - Retrieved 992 price records for ULTRACEMCO
+2025-08-23 22:57:10,020 - backtesting.engine - INFO - Retrieved 992 data points for ULTRACEMCO
+2025-08-23 22:57:10,022 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,025 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:10,070 - backtesting.engine - INFO - Backtest completed for ULTRACEMCO
+2025-08-23 22:57:10,070 - backtesting.engine - INFO - Running backtest for TATAMOTORS (23/50)
+2025-08-23 22:57:10,070 - backtesting.engine - INFO - Starting backtest for TATAMOTORS with Moving Average Crossover
+2025-08-23 22:57:10,084 - database.operations - INFO - Retrieved 992 price records for TATAMOTORS
+2025-08-23 22:57:10,092 - backtesting.engine - INFO - Retrieved 992 data points for TATAMOTORS
+2025-08-23 22:57:10,094 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,096 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:10,141 - backtesting.engine - INFO - Backtest completed for TATAMOTORS
+2025-08-23 22:57:10,141 - backtesting.engine - INFO - Running backtest for BAJAJFINSV (24/50)
+2025-08-23 22:57:10,141 - backtesting.engine - INFO - Starting backtest for BAJAJFINSV with Moving Average Crossover
+2025-08-23 22:57:10,155 - database.operations - INFO - Retrieved 992 price records for BAJAJFINSV
+2025-08-23 22:57:10,162 - backtesting.engine - INFO - Retrieved 992 data points for BAJAJFINSV
+2025-08-23 22:57:10,164 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,166 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:10,217 - backtesting.engine - INFO - Backtest completed for BAJAJFINSV
+2025-08-23 22:57:10,217 - backtesting.engine - INFO - Running backtest for ADANIPORTS (25/50)
+2025-08-23 22:57:10,217 - backtesting.engine - INFO - Starting backtest for ADANIPORTS with Moving Average Crossover
+2025-08-23 22:57:10,232 - database.operations - INFO - Retrieved 992 price records for ADANIPORTS
+2025-08-23 22:57:10,238 - backtesting.engine - INFO - Retrieved 992 data points for ADANIPORTS
+2025-08-23 22:57:10,241 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,244 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:10,293 - backtesting.engine - INFO - Backtest completed for ADANIPORTS
+2025-08-23 22:57:10,293 - backtesting.engine - INFO - Running backtest for HDFCLIFE (26/50)
+2025-08-23 22:57:10,293 - backtesting.engine - INFO - Starting backtest for HDFCLIFE with Moving Average Crossover
+2025-08-23 22:57:10,307 - database.operations - INFO - Retrieved 992 price records for HDFCLIFE
+2025-08-23 22:57:10,314 - backtesting.engine - INFO - Retrieved 992 data points for HDFCLIFE
+2025-08-23 22:57:10,316 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,318 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:10,362 - backtesting.engine - INFO - Backtest completed for HDFCLIFE
+2025-08-23 22:57:10,363 - backtesting.engine - INFO - Running backtest for SBILIFE (27/50)
+2025-08-23 22:57:10,363 - backtesting.engine - INFO - Starting backtest for SBILIFE with Moving Average Crossover
+2025-08-23 22:57:10,378 - database.operations - INFO - Retrieved 992 price records for SBILIFE
+2025-08-23 22:57:10,384 - backtesting.engine - INFO - Retrieved 992 data points for SBILIFE
+2025-08-23 22:57:10,386 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,388 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:10,433 - backtesting.engine - INFO - Backtest completed for SBILIFE
+2025-08-23 22:57:10,434 - backtesting.engine - INFO - Running backtest for POWERGRID (28/50)
+2025-08-23 22:57:10,434 - backtesting.engine - INFO - Starting backtest for POWERGRID with Moving Average Crossover
+2025-08-23 22:57:10,448 - database.operations - INFO - Retrieved 992 price records for POWERGRID
+2025-08-23 22:57:10,454 - backtesting.engine - INFO - Retrieved 992 data points for POWERGRID
+2025-08-23 22:57:10,456 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,459 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:10,507 - backtesting.engine - INFO - Backtest completed for POWERGRID
+2025-08-23 22:57:10,508 - backtesting.engine - INFO - Running backtest for M&M (29/50)
+2025-08-23 22:57:10,508 - backtesting.engine - INFO - Starting backtest for M&M with Moving Average Crossover
+2025-08-23 22:57:10,521 - database.operations - INFO - Retrieved 992 price records for M&M
+2025-08-23 22:57:10,528 - backtesting.engine - INFO - Retrieved 992 data points for M&M
+2025-08-23 22:57:10,530 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,532 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:10,579 - backtesting.engine - INFO - Backtest completed for M&M
+2025-08-23 22:57:10,580 - backtesting.engine - INFO - Running backtest for TATASTEEL (30/50)
+2025-08-23 22:57:10,580 - backtesting.engine - INFO - Starting backtest for TATASTEEL with Moving Average Crossover
+2025-08-23 22:57:10,595 - database.operations - INFO - Retrieved 992 price records for TATASTEEL
+2025-08-23 22:57:10,601 - backtesting.engine - INFO - Retrieved 992 data points for TATASTEEL
+2025-08-23 22:57:10,603 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,605 - strategies.moving_average_crossover - INFO - Generated 7 buy signals and 6 sell signals
+2025-08-23 22:57:10,649 - backtesting.engine - INFO - Backtest completed for TATASTEEL
+2025-08-23 22:57:10,649 - backtesting.engine - INFO - Running backtest for GRASIM (31/50)
+2025-08-23 22:57:10,649 - backtesting.engine - INFO - Starting backtest for GRASIM with Moving Average Crossover
+2025-08-23 22:57:10,665 - database.operations - INFO - Retrieved 992 price records for GRASIM
+2025-08-23 22:57:10,671 - backtesting.engine - INFO - Retrieved 992 data points for GRASIM
+2025-08-23 22:57:10,674 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,676 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:10,719 - backtesting.engine - INFO - Backtest completed for GRASIM
+2025-08-23 22:57:10,719 - backtesting.engine - INFO - Running backtest for DIVISLAB (32/50)
+2025-08-23 22:57:10,720 - backtesting.engine - INFO - Starting backtest for DIVISLAB with Moving Average Crossover
+2025-08-23 22:57:10,773 - database.operations - INFO - Retrieved 992 price records for DIVISLAB
+2025-08-23 22:57:10,780 - backtesting.engine - INFO - Retrieved 992 data points for DIVISLAB
+2025-08-23 22:57:10,782 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,784 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:10,832 - backtesting.engine - INFO - Backtest completed for DIVISLAB
+2025-08-23 22:57:10,832 - backtesting.engine - INFO - Running backtest for JSWSTEEL (33/50)
+2025-08-23 22:57:10,832 - backtesting.engine - INFO - Starting backtest for JSWSTEEL with Moving Average Crossover
+2025-08-23 22:57:10,846 - database.operations - INFO - Retrieved 992 price records for JSWSTEEL
+2025-08-23 22:57:10,852 - backtesting.engine - INFO - Retrieved 992 data points for JSWSTEEL
+2025-08-23 22:57:10,854 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,857 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:10,903 - backtesting.engine - INFO - Backtest completed for JSWSTEEL
+2025-08-23 22:57:10,903 - backtesting.engine - INFO - Running backtest for TATACONSUM (34/50)
+2025-08-23 22:57:10,903 - backtesting.engine - INFO - Starting backtest for TATACONSUM with Moving Average Crossover
+2025-08-23 22:57:10,917 - database.operations - INFO - Retrieved 992 price records for TATACONSUM
+2025-08-23 22:57:10,924 - backtesting.engine - INFO - Retrieved 992 data points for TATACONSUM
+2025-08-23 22:57:10,926 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:10,928 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:10,972 - backtesting.engine - INFO - Backtest completed for TATACONSUM
+2025-08-23 22:57:10,972 - backtesting.engine - INFO - Running backtest for BAJAJ-AUTO (35/50)
+2025-08-23 22:57:10,973 - backtesting.engine - INFO - Starting backtest for BAJAJ-AUTO with Moving Average Crossover
+2025-08-23 22:57:10,986 - database.operations - INFO - Retrieved 992 price records for BAJAJ-AUTO
+2025-08-23 22:57:10,996 - backtesting.engine - INFO - Retrieved 992 data points for BAJAJ-AUTO
+2025-08-23 22:57:10,998 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,000 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:11,047 - backtesting.engine - INFO - Backtest completed for BAJAJ-AUTO
+2025-08-23 22:57:11,048 - backtesting.engine - INFO - Running backtest for HINDALCO (36/50)
+2025-08-23 22:57:11,048 - backtesting.engine - INFO - Starting backtest for HINDALCO with Moving Average Crossover
+2025-08-23 22:57:11,064 - database.operations - INFO - Retrieved 992 price records for HINDALCO
+2025-08-23 22:57:11,070 - backtesting.engine - INFO - Retrieved 992 data points for HINDALCO
+2025-08-23 22:57:11,072 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,075 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:11,120 - backtesting.engine - INFO - Backtest completed for HINDALCO
+2025-08-23 22:57:11,120 - backtesting.engine - INFO - Running backtest for CIPLA (37/50)
+2025-08-23 22:57:11,120 - backtesting.engine - INFO - Starting backtest for CIPLA with Moving Average Crossover
+2025-08-23 22:57:11,135 - database.operations - INFO - Retrieved 992 price records for CIPLA
+2025-08-23 22:57:11,142 - backtesting.engine - INFO - Retrieved 992 data points for CIPLA
+2025-08-23 22:57:11,144 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,146 - strategies.moving_average_crossover - INFO - Generated 8 buy signals and 7 sell signals
+2025-08-23 22:57:11,191 - backtesting.engine - INFO - Backtest completed for CIPLA
+2025-08-23 22:57:11,191 - backtesting.engine - INFO - Running backtest for UPL (38/50)
+2025-08-23 22:57:11,191 - backtesting.engine - INFO - Starting backtest for UPL with Moving Average Crossover
+2025-08-23 22:57:11,205 - database.operations - INFO - Retrieved 992 price records for UPL
+2025-08-23 22:57:11,212 - backtesting.engine - INFO - Retrieved 992 data points for UPL
+2025-08-23 22:57:11,215 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,217 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:11,264 - backtesting.engine - INFO - Backtest completed for UPL
+2025-08-23 22:57:11,264 - backtesting.engine - INFO - Running backtest for TECHM (39/50)
+2025-08-23 22:57:11,264 - backtesting.engine - INFO - Starting backtest for TECHM with Moving Average Crossover
+2025-08-23 22:57:11,279 - database.operations - INFO - Retrieved 992 price records for TECHM
+2025-08-23 22:57:11,285 - backtesting.engine - INFO - Retrieved 992 data points for TECHM
+2025-08-23 22:57:11,287 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,288 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:11,334 - backtesting.engine - INFO - Backtest completed for TECHM
+2025-08-23 22:57:11,334 - backtesting.engine - INFO - Running backtest for HDFCAMC (40/50)
+2025-08-23 22:57:11,334 - backtesting.engine - INFO - Starting backtest for HDFCAMC with Moving Average Crossover
+2025-08-23 22:57:11,349 - database.operations - INFO - Retrieved 992 price records for HDFCAMC
+2025-08-23 22:57:11,354 - backtesting.engine - INFO - Retrieved 992 data points for HDFCAMC
+2025-08-23 22:57:11,357 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,359 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:11,404 - backtesting.engine - INFO - Backtest completed for HDFCAMC
+2025-08-23 22:57:11,404 - backtesting.engine - INFO - Running backtest for BRITANNIA (41/50)
+2025-08-23 22:57:11,405 - backtesting.engine - INFO - Starting backtest for BRITANNIA with Moving Average Crossover
+2025-08-23 22:57:11,419 - database.operations - INFO - Retrieved 992 price records for BRITANNIA
+2025-08-23 22:57:11,427 - backtesting.engine - INFO - Retrieved 992 data points for BRITANNIA
+2025-08-23 22:57:11,429 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,430 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:11,476 - backtesting.engine - INFO - Backtest completed for BRITANNIA
+2025-08-23 22:57:11,476 - backtesting.engine - INFO - Running backtest for EICHERMOT (42/50)
+2025-08-23 22:57:11,476 - backtesting.engine - INFO - Starting backtest for EICHERMOT with Moving Average Crossover
+2025-08-23 22:57:11,489 - database.operations - INFO - Retrieved 992 price records for EICHERMOT
+2025-08-23 22:57:11,496 - backtesting.engine - INFO - Retrieved 992 data points for EICHERMOT
+2025-08-23 22:57:11,498 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,500 - strategies.moving_average_crossover - INFO - Generated 11 buy signals and 10 sell signals
+2025-08-23 22:57:11,547 - backtesting.engine - INFO - Backtest completed for EICHERMOT
+2025-08-23 22:57:11,547 - backtesting.engine - INFO - Running backtest for DRREDDY (43/50)
+2025-08-23 22:57:11,547 - backtesting.engine - INFO - Starting backtest for DRREDDY with Moving Average Crossover
+2025-08-23 22:57:11,567 - database.operations - INFO - Retrieved 992 price records for DRREDDY
+2025-08-23 22:57:11,574 - backtesting.engine - INFO - Retrieved 992 data points for DRREDDY
+2025-08-23 22:57:11,577 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,579 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:11,625 - backtesting.engine - INFO - Backtest completed for DRREDDY
+2025-08-23 22:57:11,625 - backtesting.engine - INFO - Running backtest for SHREECEM (44/50)
+2025-08-23 22:57:11,625 - backtesting.engine - INFO - Starting backtest for SHREECEM with Moving Average Crossover
+2025-08-23 22:57:11,639 - database.operations - INFO - Retrieved 992 price records for SHREECEM
+2025-08-23 22:57:11,647 - backtesting.engine - INFO - Retrieved 992 data points for SHREECEM
+2025-08-23 22:57:11,649 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,651 - strategies.moving_average_crossover - INFO - Generated 15 buy signals and 14 sell signals
+2025-08-23 22:57:11,699 - backtesting.engine - INFO - Backtest completed for SHREECEM
+2025-08-23 22:57:11,699 - backtesting.engine - INFO - Running backtest for COALINDIA (45/50)
+2025-08-23 22:57:11,699 - backtesting.engine - INFO - Starting backtest for COALINDIA with Moving Average Crossover
+2025-08-23 22:57:11,717 - database.operations - INFO - Retrieved 992 price records for COALINDIA
+2025-08-23 22:57:11,724 - backtesting.engine - INFO - Retrieved 992 data points for COALINDIA
+2025-08-23 22:57:11,726 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,728 - strategies.moving_average_crossover - INFO - Generated 13 buy signals and 12 sell signals
+2025-08-23 22:57:11,773 - backtesting.engine - INFO - Backtest completed for COALINDIA
+2025-08-23 22:57:11,773 - backtesting.engine - INFO - Running backtest for INDUSINDBK (46/50)
+2025-08-23 22:57:11,774 - backtesting.engine - INFO - Starting backtest for INDUSINDBK with Moving Average Crossover
+2025-08-23 22:57:11,787 - database.operations - INFO - Retrieved 992 price records for INDUSINDBK
+2025-08-23 22:57:11,797 - backtesting.engine - INFO - Retrieved 992 data points for INDUSINDBK
+2025-08-23 22:57:11,799 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,801 - strategies.moving_average_crossover - INFO - Generated 8 buy signals and 7 sell signals
+2025-08-23 22:57:11,846 - backtesting.engine - INFO - Backtest completed for INDUSINDBK
+2025-08-23 22:57:11,847 - backtesting.engine - INFO - Running backtest for HEROMOTOCO (47/50)
+2025-08-23 22:57:11,847 - backtesting.engine - INFO - Starting backtest for HEROMOTOCO with Moving Average Crossover
+2025-08-23 22:57:11,861 - database.operations - INFO - Retrieved 992 price records for HEROMOTOCO
+2025-08-23 22:57:11,868 - backtesting.engine - INFO - Retrieved 992 data points for HEROMOTOCO
+2025-08-23 22:57:11,870 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,872 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:11,916 - backtesting.engine - INFO - Backtest completed for HEROMOTOCO
+2025-08-23 22:57:11,916 - backtesting.engine - INFO - Running backtest for BPCL (48/50)
+2025-08-23 22:57:11,916 - backtesting.engine - INFO - Starting backtest for BPCL with Moving Average Crossover
+2025-08-23 22:57:11,931 - database.operations - INFO - Retrieved 992 price records for BPCL
+2025-08-23 22:57:11,937 - backtesting.engine - INFO - Retrieved 992 data points for BPCL
+2025-08-23 22:57:11,940 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:11,943 - strategies.moving_average_crossover - INFO - Generated 12 buy signals and 11 sell signals
+2025-08-23 22:57:11,987 - backtesting.engine - INFO - Backtest completed for BPCL
+2025-08-23 22:57:11,987 - backtesting.engine - INFO - Running backtest for ADANIENT (49/50)
+2025-08-23 22:57:11,987 - backtesting.engine - INFO - Starting backtest for ADANIENT with Moving Average Crossover
+2025-08-23 22:57:12,001 - database.operations - INFO - Retrieved 992 price records for ADANIENT
+2025-08-23 22:57:12,008 - backtesting.engine - INFO - Retrieved 992 data points for ADANIENT
+2025-08-23 22:57:12,010 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:12,012 - strategies.moving_average_crossover - INFO - Generated 9 buy signals and 8 sell signals
+2025-08-23 22:57:12,062 - backtesting.engine - INFO - Backtest completed for ADANIENT
+2025-08-23 22:57:12,063 - backtesting.engine - INFO - Running backtest for WIPRO (50/50)
+2025-08-23 22:57:12,063 - backtesting.engine - INFO - Starting backtest for WIPRO with Moving Average Crossover
+2025-08-23 22:57:12,078 - database.operations - INFO - Retrieved 992 price records for WIPRO
+2025-08-23 22:57:12,085 - backtesting.engine - INFO - Retrieved 992 data points for WIPRO
+2025-08-23 22:57:12,086 - strategies.moving_average_crossover - INFO - Calculated indicators for 992 data points
+2025-08-23 22:57:12,088 - strategies.moving_average_crossover - INFO - Generated 10 buy signals and 9 sell signals
+2025-08-23 22:57:12,137 - backtesting.engine - INFO - Backtest completed for WIPRO
+2025-08-23 22:57:12,138 - __main__ - INFO - Step 4: Displaying results...
+2025-08-23 22:57:12,143 - __main__ - INFO - Step 5: Generating visualizations...
+2025-08-23 22:57:12,143 - __main__ - INFO - Generating charts for RELIANCE...
+2025-08-23 22:57:12,144 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:13,425 - visualization.charts - INFO - Chart saved to charts\equity_curve_RELIANCE.png
+2025-08-23 22:57:13,436 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_RELIANCE.png
+2025-08-23 22:57:14,064 - visualization.charts - INFO - Chart saved to charts\drawdown_RELIANCE.png
+2025-08-23 22:57:14,070 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_RELIANCE.png
+2025-08-23 22:57:14,741 - visualization.charts - INFO - Chart saved to charts\trades_RELIANCE.png
+2025-08-23 22:57:14,753 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_RELIANCE.png
+2025-08-23 22:57:16,467 - visualization.charts - INFO - Chart saved to charts\signals_RELIANCE.png
+2025-08-23 22:57:16,477 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_RELIANCE.png
+2025-08-23 22:57:16,882 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_RELIANCE.html
+2025-08-23 22:57:16,882 - __main__ - INFO - Generating charts for TCS...
+2025-08-23 22:57:16,882 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:17,438 - visualization.charts - INFO - Chart saved to charts\equity_curve_TCS.png
+2025-08-23 22:57:17,448 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TCS.png
+2025-08-23 22:57:18,058 - visualization.charts - INFO - Chart saved to charts\drawdown_TCS.png
+2025-08-23 22:57:18,066 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TCS.png
+2025-08-23 22:57:18,712 - visualization.charts - INFO - Chart saved to charts\trades_TCS.png
+2025-08-23 22:57:18,719 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TCS.png
+2025-08-23 22:57:20,387 - visualization.charts - INFO - Chart saved to charts\signals_TCS.png
+2025-08-23 22:57:20,396 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TCS.png
+2025-08-23 22:57:20,460 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TCS.html
+2025-08-23 22:57:20,461 - __main__ - INFO - Generating charts for HDFCBANK...
+2025-08-23 22:57:20,461 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:20,999 - visualization.charts - INFO - Chart saved to charts\equity_curve_HDFCBANK.png
+2025-08-23 22:57:21,009 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HDFCBANK.png
+2025-08-23 22:57:21,597 - visualization.charts - INFO - Chart saved to charts\drawdown_HDFCBANK.png
+2025-08-23 22:57:21,606 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HDFCBANK.png
+2025-08-23 22:57:22,265 - visualization.charts - INFO - Chart saved to charts\trades_HDFCBANK.png
+2025-08-23 22:57:22,272 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HDFCBANK.png
+2025-08-23 22:57:23,856 - visualization.charts - INFO - Chart saved to charts\signals_HDFCBANK.png
+2025-08-23 22:57:23,866 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HDFCBANK.png
+2025-08-23 22:57:24,132 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HDFCBANK.html
+2025-08-23 22:57:24,133 - __main__ - INFO - Generating charts for ICICIBANK...
+2025-08-23 22:57:24,133 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:24,703 - visualization.charts - INFO - Chart saved to charts\equity_curve_ICICIBANK.png
+2025-08-23 22:57:24,716 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ICICIBANK.png
+2025-08-23 22:57:25,404 - visualization.charts - INFO - Chart saved to charts\drawdown_ICICIBANK.png
+2025-08-23 22:57:25,414 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ICICIBANK.png
+2025-08-23 22:57:26,076 - visualization.charts - INFO - Chart saved to charts\trades_ICICIBANK.png
+2025-08-23 22:57:26,083 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ICICIBANK.png
+2025-08-23 22:57:27,711 - visualization.charts - INFO - Chart saved to charts\signals_ICICIBANK.png
+2025-08-23 22:57:27,718 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ICICIBANK.png
+2025-08-23 22:57:27,778 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ICICIBANK.html
+2025-08-23 22:57:27,778 - __main__ - INFO - Generating charts for INFY...
+2025-08-23 22:57:27,779 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:28,334 - visualization.charts - INFO - Chart saved to charts\equity_curve_INFY.png
+2025-08-23 22:57:28,344 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_INFY.png
+2025-08-23 22:57:28,950 - visualization.charts - INFO - Chart saved to charts\drawdown_INFY.png
+2025-08-23 22:57:28,960 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_INFY.png
+2025-08-23 22:57:29,614 - visualization.charts - INFO - Chart saved to charts\trades_INFY.png
+2025-08-23 22:57:29,621 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_INFY.png
+2025-08-23 22:57:31,264 - visualization.charts - INFO - Chart saved to charts\signals_INFY.png
+2025-08-23 22:57:31,271 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_INFY.png
+2025-08-23 22:57:31,333 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_INFY.html
+2025-08-23 22:57:31,333 - __main__ - INFO - Generating charts for HINDUNILVR...
+2025-08-23 22:57:31,334 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:31,973 - visualization.charts - INFO - Chart saved to charts\equity_curve_HINDUNILVR.png
+2025-08-23 22:57:31,982 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HINDUNILVR.png
+2025-08-23 22:57:32,614 - visualization.charts - INFO - Chart saved to charts\drawdown_HINDUNILVR.png
+2025-08-23 22:57:32,622 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HINDUNILVR.png
+2025-08-23 22:57:33,279 - visualization.charts - INFO - Chart saved to charts\trades_HINDUNILVR.png
+2025-08-23 22:57:33,286 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HINDUNILVR.png
+2025-08-23 22:57:34,954 - visualization.charts - INFO - Chart saved to charts\signals_HINDUNILVR.png
+2025-08-23 22:57:34,966 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HINDUNILVR.png
+2025-08-23 22:57:35,035 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HINDUNILVR.html
+2025-08-23 22:57:35,036 - __main__ - INFO - Generating charts for ITC...
+2025-08-23 22:57:35,036 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:35,896 - visualization.charts - INFO - Chart saved to charts\equity_curve_ITC.png
+2025-08-23 22:57:35,903 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ITC.png
+2025-08-23 22:57:36,539 - visualization.charts - INFO - Chart saved to charts\drawdown_ITC.png
+2025-08-23 22:57:36,549 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ITC.png
+2025-08-23 22:57:37,201 - visualization.charts - INFO - Chart saved to charts\trades_ITC.png
+2025-08-23 22:57:37,210 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ITC.png
+2025-08-23 22:57:38,846 - visualization.charts - INFO - Chart saved to charts\signals_ITC.png
+2025-08-23 22:57:38,853 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ITC.png
+2025-08-23 22:57:38,919 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ITC.html
+2025-08-23 22:57:38,919 - __main__ - INFO - Generating charts for SBIN...
+2025-08-23 22:57:38,920 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:39,455 - visualization.charts - INFO - Chart saved to charts\equity_curve_SBIN.png
+2025-08-23 22:57:39,463 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_SBIN.png
+2025-08-23 22:57:40,084 - visualization.charts - INFO - Chart saved to charts\drawdown_SBIN.png
+2025-08-23 22:57:40,093 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_SBIN.png
+2025-08-23 22:57:40,777 - visualization.charts - INFO - Chart saved to charts\trades_SBIN.png
+2025-08-23 22:57:40,785 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_SBIN.png
+2025-08-23 22:57:42,384 - visualization.charts - INFO - Chart saved to charts\signals_SBIN.png
+2025-08-23 22:57:42,394 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_SBIN.png
+2025-08-23 22:57:42,454 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_SBIN.html
+2025-08-23 22:57:42,454 - __main__ - INFO - Generating charts for BHARTIARTL...
+2025-08-23 22:57:42,455 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:43,028 - visualization.charts - INFO - Chart saved to charts\equity_curve_BHARTIARTL.png
+2025-08-23 22:57:43,035 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BHARTIARTL.png
+2025-08-23 22:57:43,654 - visualization.charts - INFO - Chart saved to charts\drawdown_BHARTIARTL.png
+2025-08-23 22:57:43,663 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BHARTIARTL.png
+2025-08-23 22:57:44,312 - visualization.charts - INFO - Chart saved to charts\trades_BHARTIARTL.png
+2025-08-23 22:57:44,320 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BHARTIARTL.png
+2025-08-23 22:57:46,090 - visualization.charts - INFO - Chart saved to charts\signals_BHARTIARTL.png
+2025-08-23 22:57:46,102 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BHARTIARTL.png
+2025-08-23 22:57:46,184 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BHARTIARTL.html
+2025-08-23 22:57:46,185 - __main__ - INFO - Generating charts for KOTAKBANK...
+2025-08-23 22:57:46,185 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:46,812 - visualization.charts - INFO - Chart saved to charts\equity_curve_KOTAKBANK.png
+2025-08-23 22:57:46,820 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_KOTAKBANK.png
+2025-08-23 22:57:47,656 - visualization.charts - INFO - Chart saved to charts\drawdown_KOTAKBANK.png
+2025-08-23 22:57:47,664 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_KOTAKBANK.png
+2025-08-23 22:57:48,314 - visualization.charts - INFO - Chart saved to charts\trades_KOTAKBANK.png
+2025-08-23 22:57:48,322 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_KOTAKBANK.png
+2025-08-23 22:57:49,997 - visualization.charts - INFO - Chart saved to charts\signals_KOTAKBANK.png
+2025-08-23 22:57:50,006 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_KOTAKBANK.png
+2025-08-23 22:57:50,070 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_KOTAKBANK.html
+2025-08-23 22:57:50,071 - __main__ - INFO - Generating charts for AXISBANK...
+2025-08-23 22:57:50,071 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:50,636 - visualization.charts - INFO - Chart saved to charts\equity_curve_AXISBANK.png
+2025-08-23 22:57:50,647 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_AXISBANK.png
+2025-08-23 22:57:51,289 - visualization.charts - INFO - Chart saved to charts\drawdown_AXISBANK.png
+2025-08-23 22:57:51,300 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_AXISBANK.png
+2025-08-23 22:57:51,994 - visualization.charts - INFO - Chart saved to charts\trades_AXISBANK.png
+2025-08-23 22:57:52,002 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_AXISBANK.png
+2025-08-23 22:57:53,629 - visualization.charts - INFO - Chart saved to charts\signals_AXISBANK.png
+2025-08-23 22:57:53,637 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_AXISBANK.png
+2025-08-23 22:57:53,709 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_AXISBANK.html
+2025-08-23 22:57:53,709 - __main__ - INFO - Generating charts for ASIANPAINT...
+2025-08-23 22:57:53,709 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:54,293 - visualization.charts - INFO - Chart saved to charts\equity_curve_ASIANPAINT.png
+2025-08-23 22:57:54,302 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ASIANPAINT.png
+2025-08-23 22:57:54,928 - visualization.charts - INFO - Chart saved to charts\drawdown_ASIANPAINT.png
+2025-08-23 22:57:54,936 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ASIANPAINT.png
+2025-08-23 22:57:55,610 - visualization.charts - INFO - Chart saved to charts\trades_ASIANPAINT.png
+2025-08-23 22:57:55,618 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ASIANPAINT.png
+2025-08-23 22:57:57,365 - visualization.charts - INFO - Chart saved to charts\signals_ASIANPAINT.png
+2025-08-23 22:57:57,374 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ASIANPAINT.png
+2025-08-23 22:57:57,445 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ASIANPAINT.html
+2025-08-23 22:57:57,445 - __main__ - INFO - Generating charts for MARUTI...
+2025-08-23 22:57:57,446 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:57:58,010 - visualization.charts - INFO - Chart saved to charts\equity_curve_MARUTI.png
+2025-08-23 22:57:58,017 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_MARUTI.png
+2025-08-23 22:57:58,652 - visualization.charts - INFO - Chart saved to charts\drawdown_MARUTI.png
+2025-08-23 22:57:58,663 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_MARUTI.png
+2025-08-23 22:57:59,575 - visualization.charts - INFO - Chart saved to charts\trades_MARUTI.png
+2025-08-23 22:57:59,583 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_MARUTI.png
+2025-08-23 22:58:01,254 - visualization.charts - INFO - Chart saved to charts\signals_MARUTI.png
+2025-08-23 22:58:01,267 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_MARUTI.png
+2025-08-23 22:58:01,340 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_MARUTI.html
+2025-08-23 22:58:01,341 - __main__ - INFO - Generating charts for HCLTECH...
+2025-08-23 22:58:01,341 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:01,952 - visualization.charts - INFO - Chart saved to charts\equity_curve_HCLTECH.png
+2025-08-23 22:58:01,966 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HCLTECH.png
+2025-08-23 22:58:02,627 - visualization.charts - INFO - Chart saved to charts\drawdown_HCLTECH.png
+2025-08-23 22:58:02,634 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HCLTECH.png
+2025-08-23 22:58:03,367 - visualization.charts - INFO - Chart saved to charts\trades_HCLTECH.png
+2025-08-23 22:58:03,380 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HCLTECH.png
+2025-08-23 22:58:04,998 - visualization.charts - INFO - Chart saved to charts\signals_HCLTECH.png
+2025-08-23 22:58:05,008 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HCLTECH.png
+2025-08-23 22:58:05,076 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HCLTECH.html
+2025-08-23 22:58:05,076 - __main__ - INFO - Generating charts for SUNPHARMA...
+2025-08-23 22:58:05,077 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:05,618 - visualization.charts - INFO - Chart saved to charts\equity_curve_SUNPHARMA.png
+2025-08-23 22:58:05,630 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_SUNPHARMA.png
+2025-08-23 22:58:06,267 - visualization.charts - INFO - Chart saved to charts\drawdown_SUNPHARMA.png
+2025-08-23 22:58:06,278 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_SUNPHARMA.png
+2025-08-23 22:58:06,951 - visualization.charts - INFO - Chart saved to charts\trades_SUNPHARMA.png
+2025-08-23 22:58:06,961 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_SUNPHARMA.png
+2025-08-23 22:58:08,661 - visualization.charts - INFO - Chart saved to charts\signals_SUNPHARMA.png
+2025-08-23 22:58:08,668 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_SUNPHARMA.png
+2025-08-23 22:58:08,731 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_SUNPHARMA.html
+2025-08-23 22:58:08,731 - __main__ - INFO - Generating charts for TITAN...
+2025-08-23 22:58:08,732 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:09,300 - visualization.charts - INFO - Chart saved to charts\equity_curve_TITAN.png
+2025-08-23 22:58:09,310 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TITAN.png
+2025-08-23 22:58:10,025 - visualization.charts - INFO - Chart saved to charts\drawdown_TITAN.png
+2025-08-23 22:58:10,034 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TITAN.png
+2025-08-23 22:58:10,687 - visualization.charts - INFO - Chart saved to charts\trades_TITAN.png
+2025-08-23 22:58:10,698 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TITAN.png
+2025-08-23 22:58:12,582 - visualization.charts - INFO - Chart saved to charts\signals_TITAN.png
+2025-08-23 22:58:12,594 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TITAN.png
+2025-08-23 22:58:12,664 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TITAN.html
+2025-08-23 22:58:12,665 - __main__ - INFO - Generating charts for LT...
+2025-08-23 22:58:12,665 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:13,240 - visualization.charts - INFO - Chart saved to charts\equity_curve_LT.png
+2025-08-23 22:58:13,249 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_LT.png
+2025-08-23 22:58:13,918 - visualization.charts - INFO - Chart saved to charts\drawdown_LT.png
+2025-08-23 22:58:13,928 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_LT.png
+2025-08-23 22:58:14,651 - visualization.charts - INFO - Chart saved to charts\trades_LT.png
+2025-08-23 22:58:14,661 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_LT.png
+2025-08-23 22:58:16,504 - visualization.charts - INFO - Chart saved to charts\signals_LT.png
+2025-08-23 22:58:16,515 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_LT.png
+2025-08-23 22:58:16,579 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_LT.html
+2025-08-23 22:58:16,580 - __main__ - INFO - Generating charts for BAJFINANCE...
+2025-08-23 22:58:16,580 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:17,177 - visualization.charts - INFO - Chart saved to charts\equity_curve_BAJFINANCE.png
+2025-08-23 22:58:17,184 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BAJFINANCE.png
+2025-08-23 22:58:17,865 - visualization.charts - INFO - Chart saved to charts\drawdown_BAJFINANCE.png
+2025-08-23 22:58:17,875 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BAJFINANCE.png
+2025-08-23 22:58:18,568 - visualization.charts - INFO - Chart saved to charts\trades_BAJFINANCE.png
+2025-08-23 22:58:18,579 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BAJFINANCE.png
+2025-08-23 22:58:20,166 - visualization.charts - INFO - Chart saved to charts\signals_BAJFINANCE.png
+2025-08-23 22:58:20,177 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BAJFINANCE.png
+2025-08-23 22:58:20,308 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BAJFINANCE.html
+2025-08-23 22:58:20,308 - __main__ - INFO - Generating charts for NTPC...
+2025-08-23 22:58:20,309 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:20,862 - visualization.charts - INFO - Chart saved to charts\equity_curve_NTPC.png
+2025-08-23 22:58:20,869 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_NTPC.png
+2025-08-23 22:58:21,498 - visualization.charts - INFO - Chart saved to charts\drawdown_NTPC.png
+2025-08-23 22:58:21,506 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_NTPC.png
+2025-08-23 22:58:22,152 - visualization.charts - INFO - Chart saved to charts\trades_NTPC.png
+2025-08-23 22:58:22,163 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_NTPC.png
+2025-08-23 22:58:24,126 - visualization.charts - INFO - Chart saved to charts\signals_NTPC.png
+2025-08-23 22:58:24,134 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_NTPC.png
+2025-08-23 22:58:24,198 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_NTPC.html
+2025-08-23 22:58:24,199 - __main__ - INFO - Generating charts for ONGC...
+2025-08-23 22:58:24,199 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:24,773 - visualization.charts - INFO - Chart saved to charts\equity_curve_ONGC.png
+2025-08-23 22:58:24,782 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ONGC.png
+2025-08-23 22:58:25,424 - visualization.charts - INFO - Chart saved to charts\drawdown_ONGC.png
+2025-08-23 22:58:25,432 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ONGC.png
+2025-08-23 22:58:26,090 - visualization.charts - INFO - Chart saved to charts\trades_ONGC.png
+2025-08-23 22:58:26,100 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ONGC.png
+2025-08-23 22:58:27,726 - visualization.charts - INFO - Chart saved to charts\signals_ONGC.png
+2025-08-23 22:58:27,733 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ONGC.png
+2025-08-23 22:58:27,797 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ONGC.html
+2025-08-23 22:58:27,797 - __main__ - INFO - Generating charts for NESTLEIND...
+2025-08-23 22:58:27,798 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:28,388 - visualization.charts - INFO - Chart saved to charts\equity_curve_NESTLEIND.png
+2025-08-23 22:58:28,399 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_NESTLEIND.png
+2025-08-23 22:58:29,043 - visualization.charts - INFO - Chart saved to charts\drawdown_NESTLEIND.png
+2025-08-23 22:58:29,051 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_NESTLEIND.png
+2025-08-23 22:58:29,718 - visualization.charts - INFO - Chart saved to charts\trades_NESTLEIND.png
+2025-08-23 22:58:29,729 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_NESTLEIND.png
+2025-08-23 22:58:31,389 - visualization.charts - INFO - Chart saved to charts\signals_NESTLEIND.png
+2025-08-23 22:58:31,399 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_NESTLEIND.png
+2025-08-23 22:58:31,466 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_NESTLEIND.html
+2025-08-23 22:58:31,466 - __main__ - INFO - Generating charts for ULTRACEMCO...
+2025-08-23 22:58:31,467 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:32,008 - visualization.charts - INFO - Chart saved to charts\equity_curve_ULTRACEMCO.png
+2025-08-23 22:58:32,017 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ULTRACEMCO.png
+2025-08-23 22:58:32,636 - visualization.charts - INFO - Chart saved to charts\drawdown_ULTRACEMCO.png
+2025-08-23 22:58:32,648 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ULTRACEMCO.png
+2025-08-23 22:58:33,318 - visualization.charts - INFO - Chart saved to charts\trades_ULTRACEMCO.png
+2025-08-23 22:58:33,328 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ULTRACEMCO.png
+2025-08-23 22:58:35,258 - visualization.charts - INFO - Chart saved to charts\signals_ULTRACEMCO.png
+2025-08-23 22:58:35,267 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ULTRACEMCO.png
+2025-08-23 22:58:35,335 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ULTRACEMCO.html
+2025-08-23 22:58:35,336 - __main__ - INFO - Generating charts for TATAMOTORS...
+2025-08-23 22:58:35,336 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:35,878 - visualization.charts - INFO - Chart saved to charts\equity_curve_TATAMOTORS.png
+2025-08-23 22:58:35,886 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TATAMOTORS.png
+2025-08-23 22:58:36,495 - visualization.charts - INFO - Chart saved to charts\drawdown_TATAMOTORS.png
+2025-08-23 22:58:36,502 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TATAMOTORS.png
+2025-08-23 22:58:37,159 - visualization.charts - INFO - Chart saved to charts\trades_TATAMOTORS.png
+2025-08-23 22:58:37,166 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TATAMOTORS.png
+2025-08-23 22:58:38,797 - visualization.charts - INFO - Chart saved to charts\signals_TATAMOTORS.png
+2025-08-23 22:58:38,804 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TATAMOTORS.png
+2025-08-23 22:58:38,882 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TATAMOTORS.html
+2025-08-23 22:58:38,883 - __main__ - INFO - Generating charts for BAJAJFINSV...
+2025-08-23 22:58:38,883 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:39,508 - visualization.charts - INFO - Chart saved to charts\equity_curve_BAJAJFINSV.png
+2025-08-23 22:58:39,515 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BAJAJFINSV.png
+2025-08-23 22:58:40,150 - visualization.charts - INFO - Chart saved to charts\drawdown_BAJAJFINSV.png
+2025-08-23 22:58:40,158 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BAJAJFINSV.png
+2025-08-23 22:58:40,868 - visualization.charts - INFO - Chart saved to charts\trades_BAJAJFINSV.png
+2025-08-23 22:58:40,879 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BAJAJFINSV.png
+2025-08-23 22:58:42,592 - visualization.charts - INFO - Chart saved to charts\signals_BAJAJFINSV.png
+2025-08-23 22:58:42,601 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BAJAJFINSV.png
+2025-08-23 22:58:42,669 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BAJAJFINSV.html
+2025-08-23 22:58:42,669 - __main__ - INFO - Generating charts for ADANIPORTS...
+2025-08-23 22:58:42,670 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:43,288 - visualization.charts - INFO - Chart saved to charts\equity_curve_ADANIPORTS.png
+2025-08-23 22:58:43,298 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ADANIPORTS.png
+2025-08-23 22:58:43,989 - visualization.charts - INFO - Chart saved to charts\drawdown_ADANIPORTS.png
+2025-08-23 22:58:43,999 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ADANIPORTS.png
+2025-08-23 22:58:44,988 - visualization.charts - INFO - Chart saved to charts\trades_ADANIPORTS.png
+2025-08-23 22:58:44,999 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ADANIPORTS.png
+2025-08-23 22:58:46,849 - visualization.charts - INFO - Chart saved to charts\signals_ADANIPORTS.png
+2025-08-23 22:58:46,860 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ADANIPORTS.png
+2025-08-23 22:58:46,927 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ADANIPORTS.html
+2025-08-23 22:58:46,927 - __main__ - INFO - Generating charts for HDFCLIFE...
+2025-08-23 22:58:46,928 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:47,466 - visualization.charts - INFO - Chart saved to charts\equity_curve_HDFCLIFE.png
+2025-08-23 22:58:47,474 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HDFCLIFE.png
+2025-08-23 22:58:48,060 - visualization.charts - INFO - Chart saved to charts\drawdown_HDFCLIFE.png
+2025-08-23 22:58:48,069 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HDFCLIFE.png
+2025-08-23 22:58:48,745 - visualization.charts - INFO - Chart saved to charts\trades_HDFCLIFE.png
+2025-08-23 22:58:48,752 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HDFCLIFE.png
+2025-08-23 22:58:50,424 - visualization.charts - INFO - Chart saved to charts\signals_HDFCLIFE.png
+2025-08-23 22:58:50,432 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HDFCLIFE.png
+2025-08-23 22:58:50,495 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HDFCLIFE.html
+2025-08-23 22:58:50,495 - __main__ - INFO - Generating charts for SBILIFE...
+2025-08-23 22:58:50,496 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:51,061 - visualization.charts - INFO - Chart saved to charts\equity_curve_SBILIFE.png
+2025-08-23 22:58:51,068 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_SBILIFE.png
+2025-08-23 22:58:51,667 - visualization.charts - INFO - Chart saved to charts\drawdown_SBILIFE.png
+2025-08-23 22:58:51,676 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_SBILIFE.png
+2025-08-23 22:58:52,336 - visualization.charts - INFO - Chart saved to charts\trades_SBILIFE.png
+2025-08-23 22:58:52,346 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_SBILIFE.png
+2025-08-23 22:58:53,892 - visualization.charts - INFO - Chart saved to charts\signals_SBILIFE.png
+2025-08-23 22:58:53,900 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_SBILIFE.png
+2025-08-23 22:58:53,971 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_SBILIFE.html
+2025-08-23 22:58:53,971 - __main__ - INFO - Generating charts for POWERGRID...
+2025-08-23 22:58:53,971 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:54,514 - visualization.charts - INFO - Chart saved to charts\equity_curve_POWERGRID.png
+2025-08-23 22:58:54,522 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_POWERGRID.png
+2025-08-23 22:58:55,239 - visualization.charts - INFO - Chart saved to charts\drawdown_POWERGRID.png
+2025-08-23 22:58:55,248 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_POWERGRID.png
+2025-08-23 22:58:55,897 - visualization.charts - INFO - Chart saved to charts\trades_POWERGRID.png
+2025-08-23 22:58:55,910 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_POWERGRID.png
+2025-08-23 22:58:57,759 - visualization.charts - INFO - Chart saved to charts\signals_POWERGRID.png
+2025-08-23 22:58:57,766 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_POWERGRID.png
+2025-08-23 22:58:57,829 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_POWERGRID.html
+2025-08-23 22:58:57,830 - __main__ - INFO - Generating charts for M&M...
+2025-08-23 22:58:57,830 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:58:58,387 - visualization.charts - INFO - Chart saved to charts\equity_curve_M&M.png
+2025-08-23 22:58:58,399 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_M&M.png
+2025-08-23 22:58:59,017 - visualization.charts - INFO - Chart saved to charts\drawdown_M&M.png
+2025-08-23 22:58:59,028 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_M&M.png
+2025-08-23 22:58:59,687 - visualization.charts - INFO - Chart saved to charts\trades_M&M.png
+2025-08-23 22:58:59,697 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_M&M.png
+2025-08-23 22:59:01,336 - visualization.charts - INFO - Chart saved to charts\signals_M&M.png
+2025-08-23 22:59:01,347 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_M&M.png
+2025-08-23 22:59:01,412 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_M&M.html
+2025-08-23 22:59:01,412 - __main__ - INFO - Generating charts for TATASTEEL...
+2025-08-23 22:59:01,412 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:01,954 - visualization.charts - INFO - Chart saved to charts\equity_curve_TATASTEEL.png
+2025-08-23 22:59:01,965 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TATASTEEL.png
+2025-08-23 22:59:02,603 - visualization.charts - INFO - Chart saved to charts\drawdown_TATASTEEL.png
+2025-08-23 22:59:02,613 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TATASTEEL.png
+2025-08-23 22:59:03,256 - visualization.charts - INFO - Chart saved to charts\trades_TATASTEEL.png
+2025-08-23 22:59:03,266 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TATASTEEL.png
+2025-08-23 22:59:04,881 - visualization.charts - INFO - Chart saved to charts\signals_TATASTEEL.png
+2025-08-23 22:59:04,894 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TATASTEEL.png
+2025-08-23 22:59:04,958 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TATASTEEL.html
+2025-08-23 22:59:04,958 - __main__ - INFO - Generating charts for GRASIM...
+2025-08-23 22:59:04,958 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:05,544 - visualization.charts - INFO - Chart saved to charts\equity_curve_GRASIM.png
+2025-08-23 22:59:05,552 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_GRASIM.png
+2025-08-23 22:59:06,177 - visualization.charts - INFO - Chart saved to charts\drawdown_GRASIM.png
+2025-08-23 22:59:06,186 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_GRASIM.png
+2025-08-23 22:59:06,857 - visualization.charts - INFO - Chart saved to charts\trades_GRASIM.png
+2025-08-23 22:59:06,867 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_GRASIM.png
+2025-08-23 22:59:08,841 - visualization.charts - INFO - Chart saved to charts\signals_GRASIM.png
+2025-08-23 22:59:08,850 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_GRASIM.png
+2025-08-23 22:59:08,915 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_GRASIM.html
+2025-08-23 22:59:08,915 - __main__ - INFO - Generating charts for DIVISLAB...
+2025-08-23 22:59:08,916 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:09,479 - visualization.charts - INFO - Chart saved to charts\equity_curve_DIVISLAB.png
+2025-08-23 22:59:09,489 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_DIVISLAB.png
+2025-08-23 22:59:10,110 - visualization.charts - INFO - Chart saved to charts\drawdown_DIVISLAB.png
+2025-08-23 22:59:10,118 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_DIVISLAB.png
+2025-08-23 22:59:10,841 - visualization.charts - INFO - Chart saved to charts\trades_DIVISLAB.png
+2025-08-23 22:59:10,852 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_DIVISLAB.png
+2025-08-23 22:59:12,484 - visualization.charts - INFO - Chart saved to charts\signals_DIVISLAB.png
+2025-08-23 22:59:12,496 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_DIVISLAB.png
+2025-08-23 22:59:12,566 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_DIVISLAB.html
+2025-08-23 22:59:12,566 - __main__ - INFO - Generating charts for JSWSTEEL...
+2025-08-23 22:59:12,567 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:13,142 - visualization.charts - INFO - Chart saved to charts\equity_curve_JSWSTEEL.png
+2025-08-23 22:59:13,150 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_JSWSTEEL.png
+2025-08-23 22:59:13,786 - visualization.charts - INFO - Chart saved to charts\drawdown_JSWSTEEL.png
+2025-08-23 22:59:13,799 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_JSWSTEEL.png
+2025-08-23 22:59:14,477 - visualization.charts - INFO - Chart saved to charts\trades_JSWSTEEL.png
+2025-08-23 22:59:14,485 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_JSWSTEEL.png
+2025-08-23 22:59:16,374 - visualization.charts - INFO - Chart saved to charts\signals_JSWSTEEL.png
+2025-08-23 22:59:16,386 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_JSWSTEEL.png
+2025-08-23 22:59:16,458 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_JSWSTEEL.html
+2025-08-23 22:59:16,459 - __main__ - INFO - Generating charts for TATACONSUM...
+2025-08-23 22:59:16,459 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:17,013 - visualization.charts - INFO - Chart saved to charts\equity_curve_TATACONSUM.png
+2025-08-23 22:59:17,020 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TATACONSUM.png
+2025-08-23 22:59:17,693 - visualization.charts - INFO - Chart saved to charts\drawdown_TATACONSUM.png
+2025-08-23 22:59:17,701 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TATACONSUM.png
+2025-08-23 22:59:18,374 - visualization.charts - INFO - Chart saved to charts\trades_TATACONSUM.png
+2025-08-23 22:59:18,382 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TATACONSUM.png
+2025-08-23 22:59:20,249 - visualization.charts - INFO - Chart saved to charts\signals_TATACONSUM.png
+2025-08-23 22:59:20,257 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TATACONSUM.png
+2025-08-23 22:59:20,319 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TATACONSUM.html
+2025-08-23 22:59:20,319 - __main__ - INFO - Generating charts for BAJAJ-AUTO...
+2025-08-23 22:59:20,319 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:20,880 - visualization.charts - INFO - Chart saved to charts\equity_curve_BAJAJ-AUTO.png
+2025-08-23 22:59:20,887 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BAJAJ-AUTO.png
+2025-08-23 22:59:21,563 - visualization.charts - INFO - Chart saved to charts\drawdown_BAJAJ-AUTO.png
+2025-08-23 22:59:21,570 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BAJAJ-AUTO.png
+2025-08-23 22:59:22,204 - visualization.charts - INFO - Chart saved to charts\trades_BAJAJ-AUTO.png
+2025-08-23 22:59:22,213 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BAJAJ-AUTO.png
+2025-08-23 22:59:23,788 - visualization.charts - INFO - Chart saved to charts\signals_BAJAJ-AUTO.png
+2025-08-23 22:59:23,797 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BAJAJ-AUTO.png
+2025-08-23 22:59:23,866 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BAJAJ-AUTO.html
+2025-08-23 22:59:23,867 - __main__ - INFO - Generating charts for HINDALCO...
+2025-08-23 22:59:23,867 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:24,431 - visualization.charts - INFO - Chart saved to charts\equity_curve_HINDALCO.png
+2025-08-23 22:59:24,438 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HINDALCO.png
+2025-08-23 22:59:25,066 - visualization.charts - INFO - Chart saved to charts\drawdown_HINDALCO.png
+2025-08-23 22:59:25,077 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HINDALCO.png
+2025-08-23 22:59:25,750 - visualization.charts - INFO - Chart saved to charts\trades_HINDALCO.png
+2025-08-23 22:59:25,760 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HINDALCO.png
+2025-08-23 22:59:27,447 - visualization.charts - INFO - Chart saved to charts\signals_HINDALCO.png
+2025-08-23 22:59:27,455 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HINDALCO.png
+2025-08-23 22:59:27,521 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HINDALCO.html
+2025-08-23 22:59:27,522 - __main__ - INFO - Generating charts for CIPLA...
+2025-08-23 22:59:27,523 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:28,059 - visualization.charts - INFO - Chart saved to charts\equity_curve_CIPLA.png
+2025-08-23 22:59:28,068 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_CIPLA.png
+2025-08-23 22:59:28,723 - visualization.charts - INFO - Chart saved to charts\drawdown_CIPLA.png
+2025-08-23 22:59:28,731 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_CIPLA.png
+2025-08-23 22:59:29,365 - visualization.charts - INFO - Chart saved to charts\trades_CIPLA.png
+2025-08-23 22:59:29,374 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_CIPLA.png
+2025-08-23 22:59:31,201 - visualization.charts - INFO - Chart saved to charts\signals_CIPLA.png
+2025-08-23 22:59:31,214 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_CIPLA.png
+2025-08-23 22:59:31,278 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_CIPLA.html
+2025-08-23 22:59:31,279 - __main__ - INFO - Generating charts for UPL...
+2025-08-23 22:59:31,279 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:32,014 - visualization.charts - INFO - Chart saved to charts\equity_curve_UPL.png
+2025-08-23 22:59:32,021 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_UPL.png
+2025-08-23 22:59:32,690 - visualization.charts - INFO - Chart saved to charts\drawdown_UPL.png
+2025-08-23 22:59:32,697 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_UPL.png
+2025-08-23 22:59:33,362 - visualization.charts - INFO - Chart saved to charts\trades_UPL.png
+2025-08-23 22:59:33,369 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_UPL.png
+2025-08-23 22:59:34,995 - visualization.charts - INFO - Chart saved to charts\signals_UPL.png
+2025-08-23 22:59:35,003 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_UPL.png
+2025-08-23 22:59:35,066 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_UPL.html
+2025-08-23 22:59:35,067 - __main__ - INFO - Generating charts for TECHM...
+2025-08-23 22:59:35,067 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:35,628 - visualization.charts - INFO - Chart saved to charts\equity_curve_TECHM.png
+2025-08-23 22:59:35,636 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_TECHM.png
+2025-08-23 22:59:36,264 - visualization.charts - INFO - Chart saved to charts\drawdown_TECHM.png
+2025-08-23 22:59:36,272 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_TECHM.png
+2025-08-23 22:59:36,957 - visualization.charts - INFO - Chart saved to charts\trades_TECHM.png
+2025-08-23 22:59:36,968 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_TECHM.png
+2025-08-23 22:59:38,645 - visualization.charts - INFO - Chart saved to charts\signals_TECHM.png
+2025-08-23 22:59:38,653 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_TECHM.png
+2025-08-23 22:59:38,717 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_TECHM.html
+2025-08-23 22:59:38,717 - __main__ - INFO - Generating charts for HDFCAMC...
+2025-08-23 22:59:38,718 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:39,563 - visualization.charts - INFO - Chart saved to charts\equity_curve_HDFCAMC.png
+2025-08-23 22:59:39,577 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HDFCAMC.png
+2025-08-23 22:59:40,221 - visualization.charts - INFO - Chart saved to charts\drawdown_HDFCAMC.png
+2025-08-23 22:59:40,232 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HDFCAMC.png
+2025-08-23 22:59:40,907 - visualization.charts - INFO - Chart saved to charts\trades_HDFCAMC.png
+2025-08-23 22:59:40,915 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HDFCAMC.png
+2025-08-23 22:59:42,581 - visualization.charts - INFO - Chart saved to charts\signals_HDFCAMC.png
+2025-08-23 22:59:42,590 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HDFCAMC.png
+2025-08-23 22:59:42,919 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HDFCAMC.html
+2025-08-23 22:59:42,920 - __main__ - INFO - Generating charts for BRITANNIA...
+2025-08-23 22:59:42,920 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:43,478 - visualization.charts - INFO - Chart saved to charts\equity_curve_BRITANNIA.png
+2025-08-23 22:59:43,486 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BRITANNIA.png
+2025-08-23 22:59:44,106 - visualization.charts - INFO - Chart saved to charts\drawdown_BRITANNIA.png
+2025-08-23 22:59:44,114 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BRITANNIA.png
+2025-08-23 22:59:44,781 - visualization.charts - INFO - Chart saved to charts\trades_BRITANNIA.png
+2025-08-23 22:59:44,793 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BRITANNIA.png
+2025-08-23 22:59:46,388 - visualization.charts - INFO - Chart saved to charts\signals_BRITANNIA.png
+2025-08-23 22:59:46,396 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BRITANNIA.png
+2025-08-23 22:59:46,463 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BRITANNIA.html
+2025-08-23 22:59:46,463 - __main__ - INFO - Generating charts for EICHERMOT...
+2025-08-23 22:59:46,464 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:47,015 - visualization.charts - INFO - Chart saved to charts\equity_curve_EICHERMOT.png
+2025-08-23 22:59:47,023 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_EICHERMOT.png
+2025-08-23 22:59:47,709 - visualization.charts - INFO - Chart saved to charts\drawdown_EICHERMOT.png
+2025-08-23 22:59:47,717 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_EICHERMOT.png
+2025-08-23 22:59:48,381 - visualization.charts - INFO - Chart saved to charts\trades_EICHERMOT.png
+2025-08-23 22:59:48,388 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_EICHERMOT.png
+2025-08-23 22:59:50,008 - visualization.charts - INFO - Chart saved to charts\signals_EICHERMOT.png
+2025-08-23 22:59:50,016 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_EICHERMOT.png
+2025-08-23 22:59:50,078 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_EICHERMOT.html
+2025-08-23 22:59:50,078 - __main__ - INFO - Generating charts for DRREDDY...
+2025-08-23 22:59:50,078 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:50,621 - visualization.charts - INFO - Chart saved to charts\equity_curve_DRREDDY.png
+2025-08-23 22:59:50,631 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_DRREDDY.png
+2025-08-23 22:59:51,237 - visualization.charts - INFO - Chart saved to charts\drawdown_DRREDDY.png
+2025-08-23 22:59:51,247 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_DRREDDY.png
+2025-08-23 22:59:51,917 - visualization.charts - INFO - Chart saved to charts\trades_DRREDDY.png
+2025-08-23 22:59:51,928 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_DRREDDY.png
+2025-08-23 22:59:53,661 - visualization.charts - INFO - Chart saved to charts\signals_DRREDDY.png
+2025-08-23 22:59:53,669 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_DRREDDY.png
+2025-08-23 22:59:53,734 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_DRREDDY.html
+2025-08-23 22:59:53,735 - __main__ - INFO - Generating charts for SHREECEM...
+2025-08-23 22:59:53,735 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:54,269 - visualization.charts - INFO - Chart saved to charts\equity_curve_SHREECEM.png
+2025-08-23 22:59:54,278 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_SHREECEM.png
+2025-08-23 22:59:55,076 - visualization.charts - INFO - Chart saved to charts\drawdown_SHREECEM.png
+2025-08-23 22:59:55,083 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_SHREECEM.png
+2025-08-23 22:59:55,783 - visualization.charts - INFO - Chart saved to charts\trades_SHREECEM.png
+2025-08-23 22:59:55,797 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_SHREECEM.png
+2025-08-23 22:59:57,411 - visualization.charts - INFO - Chart saved to charts\signals_SHREECEM.png
+2025-08-23 22:59:57,421 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_SHREECEM.png
+2025-08-23 22:59:57,488 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_SHREECEM.html
+2025-08-23 22:59:57,488 - __main__ - INFO - Generating charts for COALINDIA...
+2025-08-23 22:59:57,489 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 22:59:58,036 - visualization.charts - INFO - Chart saved to charts\equity_curve_COALINDIA.png
+2025-08-23 22:59:58,047 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_COALINDIA.png
+2025-08-23 22:59:58,738 - visualization.charts - INFO - Chart saved to charts\drawdown_COALINDIA.png
+2025-08-23 22:59:58,747 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_COALINDIA.png
+2025-08-23 22:59:59,407 - visualization.charts - INFO - Chart saved to charts\trades_COALINDIA.png
+2025-08-23 22:59:59,415 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_COALINDIA.png
+2025-08-23 23:00:00,995 - visualization.charts - INFO - Chart saved to charts\signals_COALINDIA.png
+2025-08-23 23:00:01,004 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_COALINDIA.png
+2025-08-23 23:00:01,069 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_COALINDIA.html
+2025-08-23 23:00:01,069 - __main__ - INFO - Generating charts for INDUSINDBK...
+2025-08-23 23:00:01,069 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 23:00:01,627 - visualization.charts - INFO - Chart saved to charts\equity_curve_INDUSINDBK.png
+2025-08-23 23:00:01,637 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_INDUSINDBK.png
+2025-08-23 23:00:02,255 - visualization.charts - INFO - Chart saved to charts\drawdown_INDUSINDBK.png
+2025-08-23 23:00:02,265 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_INDUSINDBK.png
+2025-08-23 23:00:02,932 - visualization.charts - INFO - Chart saved to charts\trades_INDUSINDBK.png
+2025-08-23 23:00:02,939 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_INDUSINDBK.png
+2025-08-23 23:00:04,631 - visualization.charts - INFO - Chart saved to charts\signals_INDUSINDBK.png
+2025-08-23 23:00:04,640 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_INDUSINDBK.png
+2025-08-23 23:00:04,708 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_INDUSINDBK.html
+2025-08-23 23:00:04,708 - __main__ - INFO - Generating charts for HEROMOTOCO...
+2025-08-23 23:00:04,709 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 23:00:05,264 - visualization.charts - INFO - Chart saved to charts\equity_curve_HEROMOTOCO.png
+2025-08-23 23:00:05,270 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_HEROMOTOCO.png
+2025-08-23 23:00:05,960 - visualization.charts - INFO - Chart saved to charts\drawdown_HEROMOTOCO.png
+2025-08-23 23:00:05,967 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_HEROMOTOCO.png
+2025-08-23 23:00:06,863 - visualization.charts - INFO - Chart saved to charts\trades_HEROMOTOCO.png
+2025-08-23 23:00:06,870 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_HEROMOTOCO.png
+2025-08-23 23:00:08,482 - visualization.charts - INFO - Chart saved to charts\signals_HEROMOTOCO.png
+2025-08-23 23:00:08,491 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_HEROMOTOCO.png
+2025-08-23 23:00:08,558 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_HEROMOTOCO.html
+2025-08-23 23:00:08,559 - __main__ - INFO - Generating charts for BPCL...
+2025-08-23 23:00:08,560 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 23:00:09,211 - visualization.charts - INFO - Chart saved to charts\equity_curve_BPCL.png
+2025-08-23 23:00:09,218 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_BPCL.png
+2025-08-23 23:00:09,926 - visualization.charts - INFO - Chart saved to charts\drawdown_BPCL.png
+2025-08-23 23:00:09,935 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_BPCL.png
+2025-08-23 23:00:10,622 - visualization.charts - INFO - Chart saved to charts\trades_BPCL.png
+2025-08-23 23:00:10,632 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_BPCL.png
+2025-08-23 23:00:12,270 - visualization.charts - INFO - Chart saved to charts\signals_BPCL.png
+2025-08-23 23:00:12,281 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_BPCL.png
+2025-08-23 23:00:12,349 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_BPCL.html
+2025-08-23 23:00:12,350 - __main__ - INFO - Generating charts for ADANIENT...
+2025-08-23 23:00:12,350 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 23:00:12,920 - visualization.charts - INFO - Chart saved to charts\equity_curve_ADANIENT.png
+2025-08-23 23:00:12,931 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_ADANIENT.png
+2025-08-23 23:00:13,559 - visualization.charts - INFO - Chart saved to charts\drawdown_ADANIENT.png
+2025-08-23 23:00:13,567 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_ADANIENT.png
+2025-08-23 23:00:14,301 - visualization.charts - INFO - Chart saved to charts\trades_ADANIENT.png
+2025-08-23 23:00:14,311 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_ADANIENT.png
+2025-08-23 23:00:15,902 - visualization.charts - INFO - Chart saved to charts\signals_ADANIENT.png
+2025-08-23 23:00:15,913 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_ADANIENT.png
+2025-08-23 23:00:15,975 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_ADANIENT.html
+2025-08-23 23:00:15,975 - __main__ - INFO - Generating charts for WIPRO...
+2025-08-23 23:00:15,975 - __main__ - INFO - Using charts directory: C:\Users\sahil\My Projects\backtesting\charts
+2025-08-23 23:00:16,528 - visualization.charts - INFO - Chart saved to charts\equity_curve_WIPRO.png
+2025-08-23 23:00:16,536 - __main__ - INFO - Saved equity curve to: C:\Users\sahil\My Projects\backtesting\charts\equity_curve_WIPRO.png
+2025-08-23 23:00:17,147 - visualization.charts - INFO - Chart saved to charts\drawdown_WIPRO.png
+2025-08-23 23:00:17,154 - __main__ - INFO - Saved drawdown chart to: C:\Users\sahil\My Projects\backtesting\charts\drawdown_WIPRO.png
+2025-08-23 23:00:17,831 - visualization.charts - INFO - Chart saved to charts\trades_WIPRO.png
+2025-08-23 23:00:17,839 - __main__ - INFO - Saved trades chart to: C:\Users\sahil\My Projects\backtesting\charts\trades_WIPRO.png
+2025-08-23 23:00:19,718 - visualization.charts - INFO - Chart saved to charts\signals_WIPRO.png
+2025-08-23 23:00:19,729 - __main__ - INFO - Saved signals chart to: C:\Users\sahil\My Projects\backtesting\charts\signals_WIPRO.png
+2025-08-23 23:00:19,794 - __main__ - INFO - Saved interactive chart to: C:\Users\sahil\My Projects\backtesting\charts\interactive_WIPRO.html
+2025-08-23 23:00:19,794 - __main__ - INFO - Step 6: Saving results...
+2025-08-23 23:00:19,985 - utils.helpers - ERROR - Error saving results: keys must be str, int, float, bool or None, not date
+2025-08-23 23:00:19,985 - __main__ - INFO - Backtesting system completed successfully!

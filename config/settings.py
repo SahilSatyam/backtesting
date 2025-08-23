@@ -76,8 +76,10 @@ API_CONFIG = {
 }
 
 # Default Settings
-DEFAULT_START_DATE = os.getenv('DEFAULT_START_DATE', '2020-01-01')
-DEFAULT_END_DATE = os.getenv('DEFAULT_END_DATE', '2023-12-31')
+DEFAULT_START_DATE = os.getenv('DEFAULT_START_DATE', '2023-01-01')
+# Default end date to yesterday (last working day)
+yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+DEFAULT_END_DATE = os.getenv('DEFAULT_END_DATE', yesterday)
 DEFAULT_SHORT_WINDOW = int(os.getenv('DEFAULT_SHORT_WINDOW', 20))
 DEFAULT_LONG_WINDOW = int(os.getenv('DEFAULT_LONG_WINDOW', 50))
 
@@ -145,7 +147,7 @@ LOG_CONFIG = {
 
 # Backtesting Configuration
 BACKTEST_CONFIG = {
-    'initial_capital': 100000,
+    'initial_capital': 1000000,  # 1 million initial capital
     'commission': 0.001,  # 0.1% commission
     'slippage': 0.0005,   # 0.05% slippage
     'risk_free_rate': 0.06,  # 6% risk-free rate for Sharpe ratio
