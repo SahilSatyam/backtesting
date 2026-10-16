@@ -6,7 +6,6 @@ import numpy as np
 from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime, date
 import logging
-from database.operations import get_price_dataframe
 from strategies.base_strategy import BaseStrategy
 from backtesting.metrics import metrics_calculator
 from config.settings import BACKTEST_CONFIG
@@ -34,7 +33,8 @@ class BacktestEngine:
     
     def run_backtest(self, symbol: str, strategy: BaseStrategy, 
                     start_date: str = None, end_date: str = None,
-                    initial_capital: float = None, data: pd.DataFrame = None) -> Dict[str, Any]:
+                    initial_capital: float = None, data: pd.DataFrame = None,
+                    stop_loss_pct: float = None, take_profit_pct: float = None) -> Dict[str, Any]:
         """
         Run a backtest for a given symbol and strategy.
         
@@ -45,6 +45,8 @@ class BacktestEngine:
             end_date: End date for backtest (YYYY-MM-DD)
             initial_capital: Starting capital (overrides default)
             data: Optional DataFrame with price data (if not provided, will fetch from database)
+            stop_loss_pct: Optional stop-loss as a fraction (e.g. 0.05 exits 5% below entry)
+            take_profit_pct: Optional take-profit as a fraction (e.g. 0.10 exits 10% above entry)
             
         Returns:
             Dictionary with backtest results
@@ -70,7 +72,9 @@ class BacktestEngine:
             return {}
         
         # Run simulation
-        results = self._run_simulation(data, signals, initial_capital)
+        results = self._run_simulation(data, signals, initial_capital,
+                                       stop_loss_pct=stop_loss_pct,
+                                       take_profit_pct=take_profit_pct)
         
         # Calculate performance metrics
         metrics = self._calculate_performance(results)
@@ -84,6 +88,8 @@ class BacktestEngine:
             'end_date': data.index[-1],
             'initial_capital': results['initial_capital'],
             'final_capital': results['final_capital'],
+            'stop_loss_pct': stop_loss_pct,
+            'take_profit_pct': take_profit_pct,
             'equity_curve': results['equity_curve'],
             'trades': results['trades'],
             'signals': signals,
@@ -97,6 +103,9 @@ class BacktestEngine:
     def _get_data(self, symbol: str, start_date: str = None, end_date: str = None) -> pd.DataFrame:
         """Get price data for the symbol."""
         try:
+            # Imported lazily so backtests on provided data don't require a database
+            from database.operations import get_price_dataframe
+            
             # Convert string dates to date objects
             start_dt = None
             end_dt = None
@@ -120,7 +129,9 @@ class BacktestEngine:
             return pd.DataFrame()
     
     def _run_simulation(self, data: pd.DataFrame, signals: pd.DataFrame, 
-                       initial_capital: float = None) -> Dict[str, Any]:
+                       initial_capital: float = None,
+                       stop_loss_pct: float = None,
+                       take_profit_pct: float = None) -> Dict[str, Any]:
         """
         Run the trading simulation.
         
@@ -128,6 +139,8 @@ class BacktestEngine:
             data: Price data
             signals: Trading signals
             initial_capital: Starting capital
+            stop_loss_pct: Optional stop-loss as a fraction below entry price
+            take_profit_pct: Optional take-profit as a fraction above entry price
             
         Returns:
             Dictionary with simulation results
@@ -138,6 +151,10 @@ class BacktestEngine:
         entry_price = 0
         entry_date = None
         
+        # Fee-adjusted price used for fills
+        buy_fill_price = lambda p: p * (1 + self.commission + self.slippage)
+        sell_fill_price = lambda p: p * (1 - self.commission - self.slippage)
+        
         # Initialize tracking variables
         equity_curve = []
         trades = []
@@ -145,30 +162,42 @@ class BacktestEngine:
         for date, row in data.iterrows():
             signal = signals.loc[date, 'signal'] if date in signals.index else 0
             price = row['close']
+            open_price = row['open'] if 'open' in data.columns else price
             
-            # Handle buy signal
-            if signal == 1 and position == 0:
-                # Calculate position size (simple: use all capital)
-                shares = int(current_capital / price)
-                if shares > 0:
-                    position = shares
-                    entry_price = price
-                    entry_date = date
-                    
-                    # Apply commission and slippage
-                    cost = shares * price * (1 + self.commission + self.slippage)
-                    current_capital -= cost
-                    
-                    logger.debug(f"BUY: {date} - {shares} shares at {price:.2f}")
+            exit_price = None
+            exit_reason = None
             
-            # Handle sell signal
-            elif signal == -1 and position > 0:
-                # Calculate proceeds
-                proceeds = position * price * (1 - self.commission - self.slippage)
+            # Check risk-management exits first (they take priority over signals)
+            if position > 0:
+                low = row['low'] if 'low' in data.columns else price
+                high = row['high'] if 'high' in data.columns else price
+                
+                if stop_loss_pct is not None:
+                    stop_price = entry_price * (1 - stop_loss_pct)
+                    if low <= stop_price:
+                        # If price gapped below the stop, fill at the (worse) open price
+                        exit_price = min(stop_price, open_price)
+                        exit_reason = 'stop_loss'
+                
+                if exit_price is None and take_profit_pct is not None:
+                    target_price = entry_price * (1 + take_profit_pct)
+                    if high >= target_price:
+                        # If price gapped above the target, fill at the (better) open price
+                        exit_price = max(target_price, open_price)
+                        exit_reason = 'take_profit'
+            
+            # Handle signal-driven exit
+            if exit_price is None and signal == -1 and position > 0:
+                exit_price = price
+                exit_reason = 'signal'
+            
+            # Execute exit
+            if exit_price is not None and position > 0:
+                proceeds = position * sell_fill_price(exit_price)
                 current_capital += proceeds
                 
                 # Calculate trade P&L
-                trade_pnl = proceeds - (position * entry_price * (1 + self.commission + self.slippage))
+                trade_pnl = proceeds - (position * buy_fill_price(entry_price))
                 
                 # Record trade
                 trade_duration = (date - entry_date).days if entry_date else 0
@@ -176,17 +205,31 @@ class BacktestEngine:
                     'entry_date': entry_date,
                     'exit_date': date,
                     'entry_price': entry_price,
-                    'exit_price': price,
+                    'exit_price': exit_price,
                     'shares': position,
                     'pnl': trade_pnl,
-                    'duration': trade_duration
+                    'duration': trade_duration,
+                    'exit_reason': exit_reason
                 })
                 
-                logger.debug(f"SELL: {date} - {position} shares at {price:.2f}, P&L: {trade_pnl:.2f}")
+                logger.debug(f"SELL ({exit_reason}): {date} - {position} shares at {exit_price:.2f}, P&L: {trade_pnl:.2f}")
                 
                 position = 0
                 entry_price = 0
                 entry_date = None
+            
+            # Handle buy signal (position sizing accounts for commission and slippage,
+            # so the cost can never exceed available capital)
+            if signal == 1 and position == 0:
+                shares = int(current_capital / buy_fill_price(price))
+                if shares > 0:
+                    cost = shares * buy_fill_price(price)
+                    position = shares
+                    entry_price = price
+                    entry_date = date
+                    current_capital -= cost
+                    
+                    logger.debug(f"BUY: {date} - {shares} shares at {price:.2f}")
             
             # Calculate current portfolio value
             portfolio_value = current_capital + (position * price)
@@ -201,10 +244,10 @@ class BacktestEngine:
         # Close any remaining position at the end
         if position > 0:
             final_price = data.iloc[-1]['close']
-            proceeds = position * final_price * (1 - self.commission - self.slippage)
+            proceeds = position * sell_fill_price(final_price)
             current_capital += proceeds
             
-            trade_pnl = proceeds - (position * entry_price * (1 + self.commission + self.slippage))
+            trade_pnl = proceeds - (position * buy_fill_price(entry_price))
             trade_duration = (data.index[-1] - entry_date).days if entry_date else 0
             
             trades.append({
@@ -214,7 +257,8 @@ class BacktestEngine:
                 'exit_price': final_price,
                 'shares': position,
                 'pnl': trade_pnl,
-                'duration': trade_duration
+                'duration': trade_duration,
+                'exit_reason': 'end_of_data'
             })
         
         # Convert to DataFrames

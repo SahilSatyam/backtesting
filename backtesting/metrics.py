@@ -130,14 +130,20 @@ class PerformanceMetrics:
         if daily_returns.empty:
             return {}
         
-        # Sharpe Ratio
+        # Sharpe Ratio (annualized; volatility measured on excess returns)
         excess_returns = daily_returns - (self.risk_free_rate / 252)  # Daily risk-free rate
-        sharpe_ratio = excess_returns.mean() / daily_returns.std() * np.sqrt(252) if daily_returns.std() > 0 else 0
+        excess_vol = excess_returns.std()
+        sharpe_ratio = excess_returns.mean() / excess_vol * np.sqrt(252) if excess_vol > 0 else 0
         
-        # Sortino Ratio (using downside deviation)
-        downside_returns = daily_returns[daily_returns < 0]
-        downside_deviation = downside_returns.std() if len(downside_returns) > 0 else 0
+        # Sortino Ratio (downside deviation over the full sample, not just losing days)
+        downside_deviation = np.sqrt(np.mean(np.minimum(excess_returns, 0) ** 2))
         sortino_ratio = excess_returns.mean() / downside_deviation * np.sqrt(252) if downside_deviation > 0 else 0
+        
+        # Omega Ratio (probability-weighted gains vs losses above the daily risk-free threshold)
+        threshold = self.risk_free_rate / 252
+        gains = excess_returns[excess_returns > 0].sum()
+        losses = -excess_returns[excess_returns < 0].sum()
+        omega_ratio = gains / losses if losses > 0 else float('inf')
         
         # Calmar Ratio
         total_return = (equity_curve.iloc[-1] / equity_curve.iloc[0]) - 1
@@ -162,6 +168,7 @@ class PerformanceMetrics:
             'sharpe_ratio': sharpe_ratio,
             'sortino_ratio': sortino_ratio,
             'calmar_ratio': calmar_ratio,
+            'omega_ratio': omega_ratio,
             'var_95': var_95,
             'cvar_95': cvar_95,
             'downside_deviation': downside_deviation
@@ -296,6 +303,9 @@ class PerformanceMetrics:
             report.append(f"Sortino Ratio: {metrics['sortino_ratio']:.3f}")
         if 'calmar_ratio' in metrics:
             report.append(f"Calmar Ratio: {metrics['calmar_ratio']:.3f}")
+        if 'omega_ratio' in metrics:
+            omega = metrics['omega_ratio']
+            report.append(f"Omega Ratio: {omega:.3f}" if np.isfinite(omega) else "Omega Ratio: inf")
         report.append("")
         
         # Trade Section

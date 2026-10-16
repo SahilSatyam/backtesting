@@ -16,21 +16,34 @@ class MovingAverageCrossover(BaseStrategy):
     This strategy generates buy signals when the short-term moving average
     crosses above the long-term moving average, and sell signals when it
     crosses below.
+    
+    Supports simple (SMA) and exponential (EMA) moving averages. EMA reacts
+    faster to recent prices, reducing crossover lag at the cost of more
+    whipsaws in choppy markets.
     """
     
-    def __init__(self, short_window: int = 20, long_window: int = 50):
+    def __init__(self, short_window: int = 20, long_window: int = 50,
+                 ma_type: str = 'sma'):
         """
         Initialize Moving Average Crossover Strategy.
         
         Args:
             short_window: Period for short-term moving average
             long_window: Period for long-term moving average
+            ma_type: Type of moving average, 'sma' or 'ema'
         """
         super().__init__(name="Moving Average Crossover")
         
+        ma_type = ma_type.lower()
+        if ma_type not in ('sma', 'ema'):
+            raise ValueError(f"Unsupported ma_type '{ma_type}'. Use 'sma' or 'ema'.")
+        if short_window >= long_window:
+            raise ValueError("short_window must be smaller than long_window")
+        
         self.parameters = {
             'short_window': short_window,
-            'long_window': long_window
+            'long_window': long_window,
+            'ma_type': ma_type
         }
         
         logger.info(f"Initialized {self.name} with parameters: {self.parameters}")
@@ -53,9 +66,14 @@ class MovingAverageCrossover(BaseStrategy):
         # Calculate moving averages
         short_window = self.parameters['short_window']
         long_window = self.parameters['long_window']
+        ma_type = self.parameters.get('ma_type', 'sma')
         
-        df[f'ma_{short_window}'] = df['close'].rolling(window=short_window).mean()
-        df[f'ma_{long_window}'] = df['close'].rolling(window=long_window).mean()
+        if ma_type == 'ema':
+            df[f'ma_{short_window}'] = df['close'].ewm(span=short_window, adjust=False).mean()
+            df[f'ma_{long_window}'] = df['close'].ewm(span=long_window, adjust=False).mean()
+        else:
+            df[f'ma_{short_window}'] = df['close'].rolling(window=short_window).mean()
+            df[f'ma_{long_window}'] = df['close'].rolling(window=long_window).mean()
         
         # Calculate crossover signals
         df['ma_cross'] = np.where(
@@ -205,22 +223,36 @@ class MovingAverageCrossover(BaseStrategy):
     
     def optimize_parameters(self, data: pd.DataFrame, 
                           short_range: tuple = (5, 50, 5),
-                          long_range: tuple = (20, 200, 10)) -> Dict[str, Any]:
+                          long_range: tuple = (20, 200, 10),
+                          metric: str = 'sharpe_ratio') -> Dict[str, Any]:
         """
-        Optimize strategy parameters using grid search.
+        Optimize strategy parameters using grid search over real backtest
+        performance (commission and slippage included).
         
         Args:
             data: DataFrame with OHLCV data
             short_range: (start, end, step) for short window optimization
             long_range: (start, end, step) for long window optimization
+            metric: Backtest metric to maximize ('sharpe_ratio', 'total_return',
+                    'calmar_ratio', 'sortino_ratio')
             
         Returns:
-            Dictionary with optimal parameters and performance metrics
+            Dictionary with optimal parameters and performance metrics:
+            {
+                'best_parameters': {...} or None,
+                'best_metric': value of the optimized metric for best_parameters,
+                'all_results': [ {'short_window', 'long_window', 'sharpe_ratio',
+                                  'total_return', 'max_drawdown', 'final_capital'}, ... ]
+            }
         """
-        logger.info("Starting parameter optimization...")
+        # Imported lazily to avoid a circular import at module load time
+        from backtesting.engine import BacktestEngine
         
+        logger.info(f"Starting parameter optimization (objective: {metric})...")
+        
+        engine = BacktestEngine()
         best_params = None
-        best_return = -np.inf
+        best_value = -np.inf
         
         short_windows = range(short_range[0], short_range[1], short_range[2])
         long_windows = range(long_range[0], long_range[1], long_range[2])
@@ -233,34 +265,39 @@ class MovingAverageCrossover(BaseStrategy):
                     continue
                 
                 # Create strategy with new parameters
-                strategy = MovingAverageCrossover(short_window, long_window)
-                signals = strategy.generate_signals(data)
+                strategy = MovingAverageCrossover(short_window, long_window,
+                                                  ma_type=self.parameters.get('ma_type', 'sma'))
+                backtest = engine.run_backtest('OPTIMIZATION', strategy, data=data)
                 
-                if not signals.empty:
-                    # Calculate simple return (you might want to use a proper backtest here)
-                    buy_signals = signals[signals['signal'] == 1]
-                    sell_signals = signals[signals['signal'] == -1]
-                    
-                    if len(buy_signals) > 0 and len(sell_signals) > 0:
-                        # Simple metric: more buy signals than sell signals
-                        signal_ratio = len(buy_signals) / len(sell_signals)
-                        
-                        results.append({
-                            'short_window': short_window,
-                            'long_window': long_window,
-                            'signal_ratio': signal_ratio,
-                            'buy_signals': len(buy_signals),
-                            'sell_signals': len(sell_signals)
-                        })
-                        
-                        if signal_ratio > best_return:
-                            best_return = signal_ratio
-                            best_params = {'short_window': short_window, 'long_window': long_window}
+                if not backtest:
+                    continue
+                
+                metrics = backtest['metrics']
+                value = metrics.get(metric)
+                
+                if value is None or not np.isfinite(value):
+                    continue
+                
+                results.append({
+                    'short_window': short_window,
+                    'long_window': long_window,
+                    metric: value,
+                    'sharpe_ratio': metrics.get('sharpe_ratio', 0),
+                    'total_return': metrics.get('total_return', 0),
+                    'max_drawdown': metrics.get('max_drawdown', 0),
+                    'final_capital': backtest['final_capital']
+                })
+                
+                if value > best_value:
+                    best_value = value
+                    best_params = {'short_window': short_window, 'long_window': long_window,
+                                   'ma_type': self.parameters.get('ma_type', 'sma')}
         
-        logger.info(f"Optimization complete. Best parameters: {best_params}")
+        logger.info(f"Optimization complete. Best parameters: {best_params} "
+                    f"({metric}: {best_value:.4f})")
         
         return {
             'best_parameters': best_params,
-            'best_metric': best_return,
+            'best_metric': best_value if np.isfinite(best_value) else None,
             'all_results': results
         }
